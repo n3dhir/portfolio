@@ -18,7 +18,7 @@ export default function NavBar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
+    <header className={`sticky top-0 z-40 border-b border-border/60 backdrop-blur ${open ? 'bg-background/80 lg:bg-transparent' : 'bg-transparent'}`}>
       <div className="container-wide flex items-center justify-between py-4">
         {/* left area (kept intentionally empty on small screens so actions align right) */}
         <div className="flex-1 lg:flex-none" />
