@@ -3,9 +3,9 @@ import Footer from "./Footer"
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15),_transparent_45%)]">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(0,146,184,0.2),_transparent_45%)] flex flex-col">
       <NavBar />
-      <main className="container-wide py-12">{children}</main>
+      <main className="container-wide py-12 flex-1">{children}</main>
       <Footer />
     </div>
   )

@@ -45,11 +45,12 @@ export default function NavBar() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <NavLink to="/resume" className={`hidden sm:inline-flex ${buttonVariants()}`}>
-            View Resume
-          </NavLink>
+          <Button asChild className="hidden sm:inline-flex">
+            <NavLink to="/resume">View Resume</NavLink>
+          </Button>
           <Button
             variant="ghost"
+            size="icon"
             className="lg:hidden"
             aria-label="Open navigation"
             onClick={() => setOpen((prev) => !prev)}

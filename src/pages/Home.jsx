@@ -1,7 +1,7 @@
 import profile from "../../profile1.png"
 import { cv } from "../data/cv"
 import { Link } from "react-router-dom"
-import { buttonVariants } from "../components/ui/button"
+import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
 
@@ -22,12 +22,12 @@ export default function Home() {
           </div>
           <p className="text-base text-muted md:text-lg">{cv.summary}</p>
           <div className="flex flex-wrap gap-3">
-            <Link to="/contact" className={buttonVariants()}>
-              Let’s work together
-            </Link>
-            <Link to="/projects" className={buttonVariants({ variant: "outline" })}>
-              View projects
-            </Link>
+            <Button asChild>
+              <Link to="/contact">Let’s work together</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link to="/projects">View projects</Link>
+            </Button>
           </div>
           <div className="flex flex-wrap gap-2">
             {cv.skills.core.map((skill) => (

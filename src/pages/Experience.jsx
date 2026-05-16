@@ -27,7 +27,6 @@ export default function Experience() {
                   </li>
                 ))}
               </ul>
-              {index < cv.experience.length - 1 && <Separator />}
             </CardContent>
           </Card>
         ))}

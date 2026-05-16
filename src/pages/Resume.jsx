@@ -1,7 +1,7 @@
 import resumePdf from "../../Nadhir_Halbouni_Resume_v5.pdf"
 import { cv } from "../data/cv"
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
-import { buttonVariants } from "../components/ui/button"
+import { Button } from "../components/ui/button"
 
 export default function Resume() {
   return (
@@ -17,12 +17,16 @@ export default function Resume() {
         <CardContent className="space-y-4">
           <p className="text-sm text-muted">{cv.summary}</p>
           <div className="flex flex-wrap gap-3">
-            <a className={buttonVariants()} href={resumePdf} target="_blank" rel="noreferrer">
-              Open PDF
-            </a>
-            <a className={buttonVariants({ variant: "outline" })} href={resumePdf} download>
-              Download PDF
-            </a>
+            <Button asChild>
+              <a href={resumePdf} target="_blank" rel="noreferrer">
+                Open PDF
+              </a>
+            </Button>
+            <Button variant="outline" asChild>
+              <a href={resumePdf} download>
+                Download PDF
+              </a>
+            </Button>
           </div>
         </CardContent>
       </Card>

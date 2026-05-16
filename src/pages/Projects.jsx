@@ -1,7 +1,7 @@
 import { cv } from "../data/cv"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
-import { buttonVariants } from "../components/ui/button"
+import { Button } from "../components/ui/button"
 
 export default function Projects() {
   return (
@@ -34,15 +34,11 @@ export default function Projects() {
               </div>
               <div className="flex flex-wrap gap-3">
                 {project.links.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={buttonVariants({ variant: "outline" })}
-                  >
-                    {link.label}
-                  </a>
+                  <Button key={link.href} variant="outline" asChild>
+                    <a href={link.href} target="_blank" rel="noreferrer">
+                      {link.label}
+                    </a>
+                  </Button>
                 ))}
               </div>
             </CardContent>
