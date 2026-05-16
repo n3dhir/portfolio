@@ -40,7 +40,7 @@ export default function Home() {
             <img
               src={profile}
               alt="Nadhir Halbouni"
-              className="h-full w-full object-cover"
+              className="h-[500px] w-full object-cover"
             />
           </CardContent>
         </Card>
