@@ -8,7 +8,7 @@ export default function Projects() {
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-semibold">Projects</h2>
-        <p className="mt-3 text-muted">Selected work featuring execution engines and automated evaluation pipelines.</p>
+        <p className="mt-3 text-muted">Selected products and engineering work that demonstrate system design, automation, and real-world impact.</p>
       </div>
       <div className="grid gap-6 lg:grid-cols-2">
         {cv.projects.map((project) => (

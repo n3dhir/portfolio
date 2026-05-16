@@ -8,7 +8,7 @@ export default function Contact() {
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-semibold">Contact</h2>
-        <p className="mt-3 text-muted">Let’s connect for SaaS, platform reliability, or automation work.</p>
+        <p className="mt-3 text-muted">Interested in collaborating or working together? Feel free to contact me — I reply quickly.</p>
       </div>
       <Card className="glass">
         <CardHeader>
@@ -37,16 +37,14 @@ export default function Contact() {
           </a>
         </CardContent>
       </Card>
-      <div className="flex flex-wrap gap-3">
+      {/* <div className="flex flex-wrap gap-3">
         <Button asChild>
           <a href={`mailto:${cv.email}`}>Email me</a>
         </Button>
         <Button variant="outline" asChild>
-          <a href={cv.website} target="_blank" rel="noreferrer">
-            Visit website
-          </a>
+          <a href={cv.website} target="_blank" rel="noreferrer">Personal site</a>
         </Button>
-      </div>
+      </div> */}
     </div>
   )
 }

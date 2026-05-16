@@ -1,5 +1,5 @@
 import React from 'react'
-import resumePdf from '../../Nadhir_Halbouni_Resume_v5.pdf'
+import resumePdf from '../../Nadhir_Halbouni_Resume.pdf'
 
 export default function Resume() {
   return (

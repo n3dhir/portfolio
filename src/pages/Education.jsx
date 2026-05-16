@@ -7,7 +7,7 @@ export default function Education() {
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-semibold">Education & Certifications</h2>
-        <p className="mt-3 text-muted">Academic background and professional certifications.</p>
+        <p className="mt-3 text-muted">Formal education complemented by certificates that strengthen my skills.</p>
       </div>
       <div className="grid gap-6 lg:grid-cols-2">
         {cv.education.map((item) => (

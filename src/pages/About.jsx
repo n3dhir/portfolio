@@ -7,7 +7,7 @@ export default function About() {
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-semibold">About</h2>
-        <p className="mt-3 text-muted">{cv.summary}</p>
+        <p className="mt-3 text-muted">I’m a pragmatic software engineer who turns ambiguous product needs into reliable systems. I lead full‑stack architecture, payments, and automation work — with a focus on observability, fault-tolerance, and developer ergonomics.</p>
       </div>
       <Card className="glass">
         <CardHeader>

@@ -4,7 +4,7 @@ import { Badge } from "../components/ui/badge"
 
 const groups = [
   { title: "Core Strengths", items: cv.skills.core },
-  { title: "Backend & Data", items: cv.skills.backend },
+  { title: "Full‑stack & Data", items: cv.skills.backend },
   { title: "Frontend", items: cv.skills.frontend },
   { title: "Infrastructure & Tools", items: cv.skills.infrastructure },
   { title: "Other", items: cv.skills.other },
@@ -15,7 +15,7 @@ export default function Skills() {
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-semibold">Skills</h2>
-        <p className="mt-3 text-muted">Focus areas across backend, frontend, data, and infrastructure.</p>
+        <p className="mt-3 text-muted">Technologies and practices I use to build reliable, maintainable systems.</p>
       </div>
       <div className="grid gap-6 lg:grid-cols-2">
         {groups.map((group) => (

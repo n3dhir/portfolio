@@ -20,15 +20,8 @@ export default function NavBar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="container-wide flex items-center justify-between py-4">
-        <div className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary">
-            <Sparkles className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="text-sm text-muted">Portfolio</p>
-            <p className="text-lg font-semibold">Nadhir Halbouni</p>
-          </div>
-        </div>
+        {/* left area (kept intentionally empty on small screens so actions align right) */}
+        <div className="flex-1 lg:flex-none" />
         <nav className="hidden items-center gap-2 lg:flex">
           {links.map((link) => (
             <NavLink
@@ -45,9 +38,9 @@ export default function NavBar() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Button asChild className="hidden sm:inline-flex">
+          {/* <Button asChild className="hidden lg:inline-flex">
             <NavLink to="/resume">View Resume</NavLink>
-          </Button>
+          </Button> */}
           <Button
             variant="ghost"
             size="icon"

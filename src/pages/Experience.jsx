@@ -7,7 +7,7 @@ export default function Experience() {
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-semibold">Experience</h2>
-        <p className="mt-3 text-muted">Highlights from production systems, payments, and automation work.</p>
+        <p className="mt-3 text-muted">Production engineering leadership and system design for high-availability SaaS platforms, with emphasis on automation and scalable migrations.</p>
       </div>
       <div className="space-y-6">
         {cv.experience.map((role, index) => (

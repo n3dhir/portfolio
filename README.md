@@ -1,6 +1,6 @@
 # Portfolio (React + Vite)
 
-Quick scaffold for a personal portfolio using React + Vite. It uses the existing `profile1.png` and `Nadhir_Halbouni_Resume_v5.pdf` in the project root.
+Quick scaffold for a personal portfolio using React + Vite. It uses the existing `profile1.png` and `Nadhir_Halbouni_Resume.pdf` in the project root.
 
 Install and run:
 

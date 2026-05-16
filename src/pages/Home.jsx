@@ -12,12 +12,12 @@ export default function Home() {
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-3 py-1 text-xs text-muted">
             <span className="h-2 w-2 rounded-full bg-primary" />
-            Available for impactful backend & SaaS work
+            Available for impactful full‑stack & SaaS work
           </div>
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-muted">{cv.title}</p>
+            <p className="text-sm tracking-[0.3em] text-muted">{cv.title}</p>
             <h1 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-              Building reliable SaaS systems that scale from database to user experience.
+              I build dependable, data-driven SaaS platforms that scale.
             </h1>
           </div>
           <p className="text-base text-muted md:text-lg">{cv.summary}</p>
@@ -40,7 +40,7 @@ export default function Home() {
             <img
               src={profile}
               alt="Nadhir Halbouni"
-              className="h-[500px] w-full object-cover"
+              className="w-full object-cover object-center h-56 sm:h-72 lg:h-[500px] rounded-md"
             />
           </CardContent>
         </Card>
@@ -49,20 +49,20 @@ export default function Home() {
       <section className="grid gap-6 md:grid-cols-3">
         <Card className="glass">
           <CardContent className="p-6">
-            <p className="text-sm text-muted">Location</p>
-            <p className="text-lg font-semibold">{cv.location}</p>
+            <p className="text-sm">Location</p>
+            <p className="text-sm text-primary font-semibold">{cv.location}</p>
           </CardContent>
         </Card>
         <Card className="glass">
           <CardContent className="p-6">
-            <p className="text-sm text-muted">Current Role</p>
-            <p className="text-lg font-semibold">Software Engineer @ Drivago</p>
+            <p className="text-sm">Current Role</p>
+            <p className="text-sm text-primary font-semibold">Software Engineer @Drivago</p>
           </CardContent>
         </Card>
         <Card className="glass">
           <CardContent className="p-6">
-            <p className="text-sm text-muted">Specialties</p>
-            <p className="text-lg font-semibold">Backend reliability & automation</p>
+            <p className="text-sm">Specialties</p>
+            <p className="text-sm text-primary font-semibold">Full‑stack reliability & automation</p>
           </CardContent>
         </Card>
       </section>

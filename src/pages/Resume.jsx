@@ -1,4 +1,4 @@
-import resumePdf from "../../Nadhir_Halbouni_Resume_v5.pdf"
+import resumePdf from "../../Nadhir_Halbouni_Resume.pdf"
 import { cv } from "../data/cv"
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { Button } from "../components/ui/button"
@@ -8,7 +8,7 @@ export default function Resume() {
     <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-semibold">Resume</h2>
-        <p className="mt-3 text-muted">Download or view a PDF copy of the resume.</p>
+        <p className="mt-3 text-muted">A concise summary of roles, projects, and technical strengths.</p>
       </div>
       <Card className="glass">
         <CardHeader>

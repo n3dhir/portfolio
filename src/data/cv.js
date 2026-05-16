@@ -8,7 +8,7 @@ export const cv = {
   github: "https://github.com/n3dhir",
   linkedin: "https://www.linkedin.com/in/nadhir-halbouni/",
   summary:
-    "Full-stack engineer specializing in data-heavy SaaS systems, backend reliability, and automation. Experienced in building and scaling production systems across multiple repositories, handling real-time features, payments, and growth mechanisms. Strong focus on ownership, system design, and delivering end-to-end solutions from database to user experience.",
+    "I design and ship data-first SaaS platforms used by hundreds of organizations. I focus on full‑stack reliability, payment flows, and automation that reduces manual toil — delivering end-to-end solutions from database design to delightful front-end experiences.",
   experience: [
     {
       company: "Drivago",
@@ -16,14 +16,14 @@ export const cv = {
       role: "Software Engineer",
       period: "Sep 2024 – Present",
       highlights: [
-        "Designed and built a cross-repository training platform spanning 7+ services, enabling secure multi-device usage and supporting concurrent usage without session conflicts.",
-        "Integrated payment gateways (Konnect, Flouci) with a full payment lifecycle and automated subscription billing across thousands of transactions.",
-        "Owned production incident resolution for 500+ client agencies, rapidly reproducing and debugging cross-platform issues to reduce time-to-resolution.",
-        "Managed production deployments on Linux servers using Nginx and PM2 with end-to-end environment configuration.",
-        "Engineered automation systems (cron jobs) for scraping, database backups, and recurring billing, saving hours of weekly maintenance.",
-        "Built authentication and security systems (magic-link login, OAuth, real-time fraud detection) enforcing single-session access.",
-        "Led migration of 4 core repositories from Angular v14 to v19, enabling standardized architecture and full RTL/LTR support.",
-        "Built a referral and coupon system driving acquisition and retention through modular discount logic and reward tracking.",
+        "Designed and delivered a cross-repository training platform spanning 7+ services, enabling secure multi-device access while preventing session conflicts during concurrent usage.",
+        "Integrated Konnect and Flouci payment gateways, implemented the full payment lifecycle, and automated subscription billing for thousands of transactions.",
+        "Led production incident response for 500+ client agencies, introducing reproducible debugging workflows that reduced mean time to resolution.",
+        "Managed production deployments on Linux using Nginx and PM2, standardizing environment configuration and improving uptime across services.",
+        "Engineered automation for scraping, backups, and recurring billing (cron jobs), removing manual operations and saving hours each week.",
+        "Implemented authentication and security features (magic-link login, OAuth for Google/Facebook) and real-time fraud detection to enforce single-session access.",
+        "Led migration of four core repositories from Angular v14 to v19, standardizing architecture and adding full RTL/LTR support.",
+        "Implemented a modular referral and coupon system to drive acquisition and retention through flexible discount rules and reward tracking.",
       ],
     },
     {
@@ -43,11 +43,11 @@ export const cv = {
       name: "Testify — Technical Assessment Platform",
       period: "Nov 2023 – Jun 2024",
       description:
-        "Web-based technical assessment platform featuring code execution, automated evaluation, and backend processing for candidate submissions.",
+        "Web-based technical assessment platform featuring code execution, automated evaluation, and server-side processing for candidate submissions.",
       highlights: [
         "Built a full-stack platform supporting MCQ, coding challenges, and open-ended evaluations.",
-        "Implemented a C++ code execution engine with test case validation, automated scoring, and pass/fail evaluation.",
-        "Designed a backend evaluation pipeline handling submissions, validation, and result aggregation.",
+        "Integrated a C++ code execution api to run user-submitted code, with test case validation, automated scoring, and pass/fail evaluation.",
+        "Designed a server-side evaluation pipeline handling submissions, validation, and result aggregation.",
       ],
       tech: ["Angular", "Node.js", "Express.js", "MongoDB", "ACE Editor"],
       links: [
@@ -58,7 +58,7 @@ export const cv = {
   ],
   skills: {
     core: [
-      "Backend Systems",
+      "Full‑stack Systems",
       "API Design",
       "REST APIs",
       "Authentication & Security",
@@ -67,7 +67,7 @@ export const cv = {
       "Data Modeling",
     ],
     backend: ["Node.js", "Express.js", "PostgreSQL", "Knex.js", "MongoDB"],
-    frontend: ["Angular (v14–v19)", "RxJS", "Angular Material", "SCSS"],
+    frontend: ["Angular", "RxJS", "Angular Material", "SCSS", "Tailwind CSS"],
     infrastructure: ["Linux", "Nginx", "PM2", "Cron Jobs", "ngrok", "Git/GitHub"],
     other: ["SSR", "SSG", "SEO Optimization", "OAuth (Google/Facebook)"],
   },
