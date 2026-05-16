@@ -1,0 +1,37 @@
+import { cv } from "../data/cv"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
+import { Separator } from "../components/ui/separator"
+
+export default function Experience() {
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-3xl font-semibold">Experience</h2>
+        <p className="mt-3 text-muted">Highlights from production systems, payments, and automation work.</p>
+      </div>
+      <div className="space-y-6">
+        {cv.experience.map((role, index) => (
+          <Card key={role.role} className="glass">
+            <CardHeader>
+              <CardTitle>{role.role}</CardTitle>
+              <CardDescription>
+                {role.company} • {role.location} • {role.period}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <ul className="space-y-2 text-sm text-muted">
+                {role.highlights.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              {index < cv.experience.length - 1 && <Separator />}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  )
+}
