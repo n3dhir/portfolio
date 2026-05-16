@@ -15,7 +15,7 @@ export default function Home() {
             Available for impactful full‑stack & SaaS work
           </div>
           <div>
-            <p className="text-sm tracking-[0.3em] text-muted">{cv.title}</p>
+            <p className="text-sm text-muted">Hi — I’m Nadhir Halbouni, {cv.title}</p>
             <h1 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
               I build dependable, data-driven SaaS platforms that scale.
             </h1>
