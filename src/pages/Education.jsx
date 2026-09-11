@@ -10,8 +10,8 @@ export default function Education() {
         <p className="mt-3 text-muted">Formal education complemented by certificates that strengthen my skills.</p>
       </div>
       <div className="grid gap-6 lg:grid-cols-2">
-        {cv.education.map((item) => (
-          <Card key={item.degree} className="glass">
+        {cv.education.map((item, ei) => (
+          <Card key={`${item.degree}-${item.period}-${ei}`} className="glass">
             <CardHeader>
               <CardTitle>{item.degree}</CardTitle>
               <CardDescription>
@@ -29,8 +29,8 @@ export default function Education() {
           <CardTitle>Certifications</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-2 text-sm text-muted">
-          {cv.certifications.map((cert) => (
-            <p key={cert}>• {cert}</p>
+          {cv.certifications.map((cert, ci) => (
+            <p key={`cert-${ci}`}>• {cert}</p>
           ))}
         </CardContent>
       </Card>

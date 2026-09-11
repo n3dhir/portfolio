@@ -1,6 +1,5 @@
 import { cv } from "../data/cv"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
-import { Separator } from "../components/ui/separator"
 
 export default function Experience() {
   return (
@@ -11,7 +10,7 @@ export default function Experience() {
       </div>
       <div className="space-y-6">
         {cv.experience.map((role, index) => (
-          <Card key={role.role} className="glass">
+          <Card key={`${role.role}-${role.period}-${index}`} className="glass">
             <CardHeader>
               <CardTitle>{role.role}</CardTitle>
               <CardDescription>
@@ -20,8 +19,8 @@ export default function Experience() {
             </CardHeader>
             <CardContent className="space-y-4">
               <ul className="space-y-2 text-sm text-muted">
-                {role.highlights.map((item) => (
-                  <li key={item} className="flex gap-2">
+                {role.highlights.map((item, hi) => (
+                  <li key={`${index}-${hi}`} className="flex gap-2">
                     <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
                     <span>{item}</span>
                   </li>

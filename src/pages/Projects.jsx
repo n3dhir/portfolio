@@ -11,8 +11,8 @@ export default function Projects() {
         <p className="mt-3 text-muted">Selected products and engineering work that demonstrate system design, automation, and real-world impact.</p>
       </div>
       <div className="grid gap-6 lg:grid-cols-2">
-        {cv.projects.map((project) => (
-          <Card key={project.name} className="glass">
+        {cv.projects.map((project, pi) => (
+          <Card key={`${project.name}-${pi}`} className="glass">
             <CardHeader>
               <CardTitle>{project.name}</CardTitle>
               <CardDescription>{project.period}</CardDescription>
@@ -20,16 +20,16 @@ export default function Projects() {
             <CardContent className="space-y-4">
               <p className="text-sm text-muted">{project.description}</p>
               <ul className="space-y-2 text-sm text-muted">
-                {project.highlights.map((item) => (
-                  <li key={item} className="flex gap-2">
+                {project.highlights.map((item, hi) => (
+                  <li key={`${pi}-hl-${hi}`} className="flex gap-2">
                     <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
               <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <Badge key={tech}>{tech}</Badge>
+                {project.tech.map((tech, ti) => (
+                  <Badge key={`${pi}-tech-${ti}`}>{tech}</Badge>
                 ))}
               </div>
               <div className="flex flex-wrap gap-3">
