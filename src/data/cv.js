@@ -185,7 +185,7 @@ export const cv = {
       "Data Modeling",
     ],
     backend: ["Node.js", "Express.js", "TypeScript", "Python", "FastAPI", "PostgreSQL", "pgvector", "Knex.js", "MongoDB"],
-    frontend: ["Angular (v14–v19)", "React", "RxJS", "Angular Material", "SCSS", "Tailwind CSS"],
+    frontend: ["Angular", "React", "RxJS", "Angular Material", "SCSS", "Tailwind CSS"],
     ai: ["LangGraph", "LangChain", "RAG", "LLM Integration", "Ollama", "whisper.cpp", "MCP"],
     infrastructure: ["Linux", "Nginx", "PM2", "Cron Jobs", "ngrok", "Git/GitHub"],
     other: ["SSR", "SSG", "SEO Optimization", "OAuth (Google/Facebook)"],
@@ -241,6 +241,89 @@ export const cv = {
       version: "v1",
       note: "Original portfolio site (May 2026)",
       href: "https://v1.n3dhir.com",
+    },
+  ],
+  uses: [
+    {
+      title: "Daily driver",
+      items: [
+        { label: "Pop!_OS 22.04", icon: "Monitor", desc: "Daily operating system", href: "https://pop.system76.com" },
+        { label: "VS Code (Tokyo Night, stock font)", icon: "/icons/vscode.svg", desc: "Main editor", href: "https://code.visualstudio.com" },
+        { label: "Firefox", icon: "/icons/firefox.svg", desc: "Primary browser", href: "https://www.firefox.com" },
+        { label: "Konsole", icon: "Terminal", desc: "Terminal emulator", href: "https://apps.kde.org/konsole" },
+      ],
+    },
+    {
+      title: "VS Code extensions",
+      items: [
+        { label: "Thunder Client", icon: "/icons/ext-thunderclient.png", desc: "API testing without leaving the editor", href: "https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client" },
+        { label: "Live Server", icon: "/icons/ext-liveserver.png", desc: "Static preview while building", href: "https://marketplace.visualstudio.com/items?itemName=ritwickdey.liveserver" },
+        { label: "Excalidraw", icon: "/icons/ext-excalidraw.png", desc: "Diagrams and whiteboarding", href: "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor" },
+        { label: "Markdown Preview Enhanced", icon: "/icons/ext-mdpreview.png", desc: "Docs preview", href: "https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced" },
+        { label: "Markdown Mermaid", icon: "/icons/ext-mermaid.png", desc: "Diagrams as code", href: "https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid" },
+        { label: "Material Icon Theme", icon: "/icons/ext-materialicons.png", desc: "File icons", href: "https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme" },
+        { label: "opencode", icon: "Puzzle", desc: "AI agent in the editor", href: "https://marketplace.visualstudio.com/items?itemName=sst-dev.opencode" },
+        { label: "Cline", icon: "/icons/ext-cline.png", desc: "AI agent in the editor", href: "https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev" },
+        { label: "GitHub Pull Requests", icon: "/icons/ext-ghpr.png", desc: "Reviews without opening the browser", href: "https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github" },
+        { label: "Remote SSH", icon: "/icons/ext-remotessh.png", desc: "Editing directly on servers", href: "https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh" },
+      ],
+    },
+    {
+      title: "AI assistants",
+      items: [
+        { label: "GitHub Copilot + Copilot Chat", icon: "Sparkles", desc: "Inline completions and chat", href: "https://github.com/features/copilot" },
+        { label: "Claude Code", icon: "Bot", desc: "Terminal agent for big changes", href: "https://docs.anthropic.com/en/docs/claude-code" },
+        { label: "Kilo Code", icon: "Zap", desc: "Terminal agent", href: "https://kilocode.ai" },
+        { label: "opencode", icon: "SquareTerminal", desc: "Terminal agent", href: "https://opencode.ai" },
+        { label: "Gemini CLI", icon: "Sparkle", desc: "Terminal agent, installed globally", href: "https://github.com/google-gemini/gemini-cli" },
+        { label: "Codex CLI", icon: "SquareTerminal", desc: "Terminal agent, installed globally", href: "https://github.com/openai/codex" },
+      ],
+    },
+    {
+      title: "Data + containers",
+      items: [
+        { label: "PostgreSQL 18 + psql", icon: "/icons/postgresql.svg", desc: "Primary database, administered from the CLI", href: "https://www.postgresql.org" },
+        { label: "SQLite", icon: "/icons/sqlite.svg", desc: "Local dev databases", href: "https://sqlite.org" },
+        { label: "Database Client for PostgreSQL", icon: "Database", desc: "DB GUI inside the editor", href: "https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-database-client2" },
+        { label: "Docker", icon: "/icons/docker.svg", desc: "Containers for services and experiments", href: "https://www.docker.com" },
+      ],
+    },
+    {
+      title: "Web toolchain",
+      items: [
+        { label: "Vite", icon: "/icons/vitejs.svg", desc: "Build tool for every frontend", href: "https://vite.dev" },
+        { label: "pnpm", icon: "Package", desc: "Package manager", href: "https://pnpm.io" },
+        { label: "Angular CLI", icon: "/icons/angular.svg", desc: "Scaffolding and builds, installed globally", href: "https://angular.dev" },
+        { label: "ESLint", icon: "/icons/eslint.svg", desc: "Linting", href: "https://eslint.org" },
+        { label: "GitLens + git-graph", icon: "GitBranch", desc: "Blame and history in the editor", href: "https://www.gitkraken.com/gitlens" },
+        { label: "gh CLI", icon: "Github", desc: "PRs and repos from the terminal", href: "https://cli.github.com" },
+      ],
+    },
+    {
+      title: "Testing",
+      items: [
+        { label: "Playwright", icon: "/icons/playwright.svg", desc: "E2E tests (MCP config in the editor)", href: "https://playwright.dev" },
+        { label: "Cypress", icon: "/icons/cypressio.svg", desc: "E2E tests", href: "https://cypress.io" },
+        { label: "Postman", icon: "/icons/postman.svg", desc: "API testing (config on this machine)", href: "https://www.postman.com" },
+      ],
+    },
+    {
+      title: "Work",
+      items: [
+        { label: "Jira", icon: "/icons/jira.svg", desc: "Issue tracking and workflow", href: "https://www.atlassian.com/software/jira" },
+        { label: "Slack", icon: "/icons/slack.svg", desc: "Team communication", href: "https://slack.com" },
+        { label: "Gmail", icon: "Mail", desc: "Email", href: "https://mail.google.com" },
+        { label: "Google Calendar", icon: "/icons/googlecalendar.svg", desc: "Scheduling", href: "https://calendar.google.com" },
+        { label: "GitHub Actions", icon: "/icons/githubactions.svg", desc: "CI for my repos", href: "https://docs.github.com/actions" },
+        { label: "n8n", icon: "Workflow", desc: "Workflow automation, installed globally", href: "https://n8n.io" },
+        { label: "Cloudflare", icon: "/icons/cloudflare.svg", desc: "DNS, proxying, and TLS for my domains", href: "https://www.cloudflare.com" },
+      ],
+    },
+    {
+      title: "Analytics",
+      items: [
+        { label: "PostHog", icon: "/icons/posthog.svg", desc: "Product analytics on AI-Flow", href: "https://posthog.com" },
+      ],
     },
   ],
 }

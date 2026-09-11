@@ -10,6 +10,8 @@ import Skills from "./pages/Skills"
 import Education from "./pages/Education"
 import Contact from "./pages/Contact"
 import Resume from "./pages/Resume"
+import Stack from "./pages/Stack"
+import NotFound from "./pages/NotFound"
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
           <Route path="/education" element={<Education />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/stack" element={<Stack />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </BrowserRouter>

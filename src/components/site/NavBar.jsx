@@ -13,6 +13,7 @@ const links = [
   { to: "/education", label: "Education" },
   { to: "/contact", label: "Contact" },
   { to: "/resume", label: "Resume" },
+  { to: "/stack", label: "Stack" },
 ]
 
 export default function NavBar() {

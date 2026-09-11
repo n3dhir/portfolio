@@ -15,6 +15,7 @@ function buildEntries() {
     { label: "Education", hint: "Page", to: "/education" },
     { label: "Contact", hint: "Page", to: "/contact" },
     { label: "Resume", hint: "Page", to: "/resume" },
+    { label: "Stack", hint: "Page", to: "/stack" },
   ]
   for (const project of cv.projects) {
     if (project.slug) entries.push({ label: project.name, hint: "Project", to: `/projects/${project.slug}` })
