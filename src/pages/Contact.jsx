@@ -1,7 +1,6 @@
 import { Mail, Phone, Globe, Github, Linkedin } from "lucide-react"
 import { cv } from "../data/cv"
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
-import { Button } from "../components/ui/button"
 
 export default function Contact() {
   return (
@@ -37,14 +36,6 @@ export default function Contact() {
           </a>
         </CardContent>
       </Card>
-      {/* <div className="flex flex-wrap gap-3">
-        <Button asChild>
-          <a href={`mailto:${cv.email}`}>Email me</a>
-        </Button>
-        <Button variant="outline" asChild>
-          <a href={cv.website} target="_blank" rel="noreferrer">Personal site</a>
-        </Button>
-      </div> */}
     </div>
   )
 }

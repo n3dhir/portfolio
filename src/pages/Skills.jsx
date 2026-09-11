@@ -24,8 +24,8 @@ export default function Skills() {
               <CardTitle>{group.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-wrap gap-2">
-              {group.items.map((skill) => (
-                <Badge key={skill} variant="outline">
+              {group.items.map((skill, si) => (
+                <Badge key={`${group.title}-${si}`} variant="outline">
                   {skill}
                 </Badge>
               ))}

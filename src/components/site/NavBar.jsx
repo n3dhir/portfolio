@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { Menu, Sparkles } from "lucide-react"
-import { Button, buttonVariants } from "../ui/button"
+import { Menu } from "lucide-react"
+import { Button } from "../ui/button"
 
 const links = [
   { to: "/", label: "Home" },
@@ -38,9 +38,6 @@ export default function NavBar() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          {/* <Button asChild className="hidden lg:inline-flex">
-            <NavLink to="/resume">View Resume</NavLink>
-          </Button> */}
           <Button
             variant="ghost"
             size="icon"
