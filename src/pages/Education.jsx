@@ -30,7 +30,15 @@ export default function Education() {
         </CardHeader>
         <CardContent className="grid gap-2 text-sm text-muted">
           {cv.certifications.map((cert, ci) => (
-            <p key={`cert-${ci}`}>• {cert}</p>
+            <a
+              key={`cert-${ci}`}
+              href={cert.href}
+              target="_blank"
+              rel="noreferrer"
+              className="transition hover:text-foreground hover:underline"
+            >
+              • {cert.label}
+            </a>
           ))}
         </CardContent>
       </Card>

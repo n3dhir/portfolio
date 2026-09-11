@@ -56,7 +56,7 @@ export default function Home() {
         <Card className="glass">
           <CardContent className="p-6">
             <p className="text-sm">Current Role</p>
-            <p className="text-sm text-primary font-semibold">Software Engineer @Drivago</p>
+            <p className="text-sm text-primary font-semibold">Full-Stack Software Engineer @Drivago</p>
           </CardContent>
         </Card>
         <Card className="glass">
