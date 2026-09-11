@@ -4,8 +4,9 @@ import { Badge } from "../components/ui/badge"
 
 const groups = [
   { title: "Core Strengths", items: cv.skills.core },
-  { title: "Full‑stack & Data", items: cv.skills.backend },
+  { title: "Backend & Data", items: cv.skills.backend },
   { title: "Frontend", items: cv.skills.frontend },
+  { title: "AI / LLM", items: cv.skills.ai },
   { title: "Infrastructure & Tools", items: cv.skills.infrastructure },
   { title: "Other", items: cv.skills.other },
 ]

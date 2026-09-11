@@ -4,18 +4,18 @@ import { cva } from "class-variance-authority"
 import { cn } from "../../lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold tracking-wide transition-all focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex cursor-default items-center rounded-lg border px-3 py-1 text-xs font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
       variant: {
         default:
-          "border-primary/30 bg-primary/10 text-primary shadow-sm shadow-primary/10 hover:bg-primary/20",
+          "border-border bg-white/5 text-foreground hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/10 hover:text-primary hover:shadow-glow",
         secondary:
-          "border-secondary/40 bg-secondary/30 text-secondary-foreground hover:bg-secondary/40",
+          "border-border bg-secondary/60 text-secondary-foreground hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/10 hover:text-primary hover:shadow-glow",
         destructive:
-          "border-destructive/40 bg-destructive/15 text-destructive hover:bg-destructive/25",
+          "border-destructive/40 bg-destructive/15 text-destructive hover:-translate-y-0.5 hover:bg-destructive/25 hover:shadow-glow",
         outline:
-          "border-border/70 bg-white/5 text-foreground hover:border-primary/40 hover:text-primary",
+          "border-border bg-white/[0.03] text-muted hover:-translate-y-0.5 hover:border-primary/60 hover:bg-primary/10 hover:text-primary hover:shadow-glow",
       },
     },
     defaultVariants: {
