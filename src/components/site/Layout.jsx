@@ -1,5 +1,6 @@
 import NavBar from "./NavBar"
 import Footer from "./Footer"
+import CommandPalette from "../CommandPalette"
 
 export default function Layout({ children }) {
   return (
@@ -7,6 +8,7 @@ export default function Layout({ children }) {
       <NavBar />
       <main className="container-wide py-12 flex-1">{children}</main>
       <Footer />
+      <CommandPalette />
     </div>
   )
 }

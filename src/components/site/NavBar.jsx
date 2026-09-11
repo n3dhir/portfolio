@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { Menu } from "lucide-react"
+import { Menu, Search } from "lucide-react"
 import { Button } from "../ui/button"
+import { PALETTE_EVENT } from "../CommandPalette"
 
 const links = [
   { to: "/", label: "Home" },
@@ -38,6 +39,15 @@ export default function NavBar() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label="Search (Ctrl+K)"
+            title="Search (Ctrl+K)"
+            onClick={() => window.dispatchEvent(new Event(PALETTE_EVENT))}
+          >
+            <Search className="h-5 w-5" />
+          </Button>
           <Button
             variant="ghost"
             size="icon"

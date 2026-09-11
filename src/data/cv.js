@@ -236,4 +236,11 @@ export const cv = {
     { name: "French", level: "Professional" },
     { name: "German", level: "Basic" },
   ],
+  versions: [
+    {
+      version: "v1",
+      note: "Original portfolio site (May 2026)",
+      href: "https://v1.n3dhir.com",
+    },
+  ],
 }
