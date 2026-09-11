@@ -42,6 +42,29 @@ export default function About() {
           ))}
         </div>
       </div>
+      {cv.versions?.length ? (
+        <div>
+          <h3 className="text-xl font-semibold">Previous versions</h3>
+          <p className="mt-2 text-sm text-muted">Earlier designs of this site, kept reachable.</p>
+          <div className="mt-3 space-y-2">
+            {cv.versions.map((v) => (
+              <a
+                key={v.version}
+                href={v.href}
+                target="_blank"
+                rel="noreferrer"
+                className="glass group flex items-center justify-between gap-4 rounded-lg px-4 py-3 transition hover:border-primary/40"
+              >
+                <div className="flex items-baseline gap-3">
+                  <span className="font-semibold group-hover:text-primary">{v.version}</span>
+                  <span className="text-sm text-muted">{v.note}</span>
+                </div>
+                <span className="text-sm text-muted transition group-hover:text-primary">↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </div>
   )
 }
