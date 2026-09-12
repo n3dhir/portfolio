@@ -1,6 +1,8 @@
 import { cv } from "../data/cv"
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
+import GitHubActivity from "../components/GitHubActivity"
+import GitHubCalendar from "../components/GitHubCalendar"
 
 export default function About() {
   return (
@@ -41,6 +43,16 @@ export default function About() {
             </Badge>
           ))}
         </div>
+      </div>
+      <div className="space-y-3">
+        <div>
+          <h3 className="text-xl font-semibold">GitHub activity</h3>
+          <p className="mt-2 text-sm text-muted">What I&apos;ve been pushing, opening, and commenting on lately.</p>
+        </div>
+        <GitHubActivity />
+      </div>
+      <div className="space-y-3">
+        <GitHubCalendar />
       </div>
       {cv.versions?.length ? (
         <div>
