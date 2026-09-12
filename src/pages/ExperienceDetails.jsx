@@ -40,10 +40,21 @@ export default function ExperienceDetails() {
       </Link>
 
       <div>
-        <h2 className="text-3xl font-semibold">{role.role}</h2>
-        <p className="mt-2 text-sm text-muted">
-          {role.company} • {role.location} • {role.period}
-        </p>
+        <div className="flex flex-wrap items-center gap-4">
+          {role.logo ? (
+            <img
+              src={role.logo}
+              alt={`${role.company} logo`}
+              className="h-12 w-12 shrink-0 rounded-xl object-cover"
+            />
+          ) : null}
+          <div>
+            <h2 className="text-3xl font-semibold">{role.role}</h2>
+            <p className="mt-2 text-sm text-muted">
+              {role.company} • {role.location} • {role.period}
+            </p>
+          </div>
+        </div>
       </div>
 
       {details.length ? (

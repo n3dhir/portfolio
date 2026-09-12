@@ -18,6 +18,14 @@ export default function Experience() {
             className="group flex items-baseline gap-4 py-5"
           >
             <span className="font-mono text-sm text-primary">0{index + 1}</span>
+            {role.logo ? (
+              <img
+                src={role.logo}
+                alt={`${role.company} logo`}
+                loading="lazy"
+                className="h-9 w-9 shrink-0 self-start rounded-lg object-cover"
+              />
+            ) : null}
             <div className="min-w-0 flex-1">
               <p className="text-lg font-semibold transition group-hover:text-primary">{role.role}</p>
               <p className="mt-0.5 text-sm text-muted">
