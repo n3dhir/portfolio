@@ -14,6 +14,7 @@ const links = [
   { to: "/contact", label: "Contact" },
   { to: "/resume", label: "Resume" },
   { to: "/stack", label: "Stack" },
+  { to: "/activity", label: "Activity" },
 ]
 
 export default function NavBar() {

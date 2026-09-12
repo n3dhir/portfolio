@@ -11,6 +11,7 @@ import Education from "./pages/Education"
 import Contact from "./pages/Contact"
 import Resume from "./pages/Resume"
 import Stack from "./pages/Stack"
+import Activity from "./pages/Activity"
 import NotFound from "./pages/NotFound"
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/stack" element={<Stack />} />
+          <Route path="/activity" element={<Activity />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

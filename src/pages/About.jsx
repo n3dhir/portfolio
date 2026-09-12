@@ -1,8 +1,6 @@
 import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
 import { Mail, MapPin, Phone, User } from "lucide-react"
-import GitHubActivity from "../components/GitHubActivity"
-import GitHubCalendar from "../components/GitHubCalendar"
 
 const details = (cv) => [
   { icon: User, label: "Name", value: cv.name },
@@ -57,25 +55,10 @@ export default function About() {
         </div>
       </section>
 
-      <section>
-        <div className="flex items-baseline gap-3">
-          <span className="font-mono text-sm text-primary">03</span>
-          <h3 className="text-xl font-semibold">GitHub activity</h3>
-        </div>
-        <p className="mt-2 text-sm text-muted">What I&apos;ve been pushing, opening, and commenting on lately.</p>
-        <div className="mt-2">
-          <GitHubActivity />
-        </div>
-      </section>
-
-      <section>
-        <GitHubCalendar />
-      </section>
-
       {cv.versions?.length ? (
         <section>
           <div className="flex items-baseline gap-3">
-            <span className="font-mono text-sm text-primary">04</span>
+            <span className="font-mono text-sm text-primary">03</span>
             <h3 className="text-xl font-semibold">Previous versions</h3>
           </div>
           <p className="mt-2 text-sm text-muted">Earlier designs of this site, kept reachable.</p>
