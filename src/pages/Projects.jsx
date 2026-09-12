@@ -21,14 +21,11 @@ export default function Projects() {
             <Link
               key={project.slug || `${project.name}-${pi}`}
               to={`/projects/${project.slug}`}
-              className="group flex items-baseline gap-4 py-5"
+              className="group flex items-start justify-between gap-4 py-5"
             >
-              <span className="font-mono text-sm text-primary">0{pi + 1}</span>
-              <div className="min-w-0 flex-1 space-y-1.5">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-                  <h4 className="text-lg font-semibold transition group-hover:text-primary">{project.name}</h4>
-                  <span className="text-sm text-muted">{project.period}</span>
-                </div>
+              <div className="min-w-0 space-y-1.5">
+                <h4 className="text-lg font-semibold transition group-hover:text-primary">{project.name}</h4>
+                <p className="text-sm text-muted">{project.period}</p>
                 <p className="text-sm text-muted">{project.description}</p>
                 <div className="flex flex-wrap gap-2 pt-0.5">
                   {project.tech.map((tech, ti) => (
@@ -36,7 +33,7 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-              <ArrowRight className="h-5 w-5 shrink-0 self-center text-muted transition group-hover:translate-x-1 group-hover:text-primary" />
+              <ArrowRight className="h-5 w-5 shrink-0 text-muted transition group-hover:translate-x-1 group-hover:text-primary" />
             </Link>
           ))}
         </div>
@@ -56,16 +53,18 @@ export default function Projects() {
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group block py-5"
+                className="group flex items-start justify-between gap-4 py-5"
               >
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge variant="outline">{item.kind}</Badge>
-                  <Badge>{item.status}</Badge>
-                  <span className="text-sm text-muted">{item.repo}</span>
-                  <ArrowUpRight className="h-4 w-4 text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="outline">{item.kind}</Badge>
+                    <Badge>{item.status}</Badge>
+                    <span className="text-sm text-muted">{item.repo}</span>
+                  </div>
+                  <h4 className="mt-2 font-semibold transition group-hover:text-primary">{item.title}</h4>
+                  <p className="mt-1 text-sm text-muted">{item.description}</p>
                 </div>
-                <h4 className="mt-2 font-semibold transition group-hover:text-primary">{item.title}</h4>
-                <p className="mt-1 text-sm text-muted">{item.description}</p>
+                <ArrowUpRight className="h-5 w-5 shrink-0 text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
               </a>
             ))}
           </div>

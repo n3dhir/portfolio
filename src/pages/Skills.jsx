@@ -73,7 +73,7 @@ export default function Skills() {
               <span className="mr-2 text-primary">{String(gi + 1).padStart(2, "0")}</span>
               {group.title}
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2.5">
               {group.items.map((skill) => (
                 <StackPill key={`${group.title}-${skill}`} icon={SKILL_ICONS[skill]} label={skill} />
               ))}
