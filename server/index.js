@@ -3,6 +3,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
 import dotenv from 'dotenv'
+import githubRouter from './github.js'
 
 dotenv.config()
 
@@ -13,6 +14,8 @@ const PORT = process.env.PORT || 3000
 
 const distPath = path.join(__dirname, '..', 'dist')
 const rootPath = path.join(__dirname, '..')
+
+app.use('/api/github', githubRouter)
 
 if (fs.existsSync(distPath)) {
   app.use(express.static(distPath))
