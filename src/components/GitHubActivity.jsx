@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { GitCommitHorizontal, GitFork, GitPullRequest, MessageCircle, PlusCircle, Rocket, Dot } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 
 const TYPE_ICONS = {
   push: GitCommitHorizontal,
@@ -49,38 +48,33 @@ export default function GitHubActivity() {
 
   if (state.status === "error" || (state.status === "ready" && state.items.length === 0)) {
     return (
-      <Card className="glass">
-        <CardContent className="p-6 text-sm text-muted">
-          Recent GitHub activity couldn&apos;t load here — see it live on{" "}
-          <a className="text-primary hover:underline" href={`https://github.com/${state.user}`} target="_blank" rel="noreferrer">
-            github.com/{state.user}
-          </a>
-          .
-        </CardContent>
-      </Card>
+      <p className="text-sm text-muted">
+        Recent GitHub activity couldn&apos;t load here — see it live on{" "}
+        <a className="text-primary hover:underline" href={`https://github.com/${state.user}`} target="_blank" rel="noreferrer">
+          github.com/{state.user}
+        </a>
+        .
+      </p>
     )
   }
 
   return (
-    <Card className="glass">
-      <CardHeader>
-        <div className="flex items-center justify-between gap-4">
-          <CardTitle>Recent activity</CardTitle>
-          <a
-            className="shrink-0 text-sm whitespace-nowrap text-muted transition hover:text-primary"
-            href={`https://github.com/${state.user}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            @{state.user} ↗
-          </a>
-        </div>
-      </CardHeader>
-      <CardContent>
-        {state.status === "loading" ? (
-          <p className="py-4 text-center text-sm text-muted">Loading activity…</p>
-        ) : (
-          <ul className="divide-y divide-border/60">
+    <div>
+      <div className="flex items-center justify-between gap-4">
+        <h4 className="font-semibold">Recent activity</h4>
+        <a
+          className="shrink-0 text-sm whitespace-nowrap text-muted transition hover:text-primary"
+          href={`https://github.com/${state.user}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          @{state.user} ↗
+        </a>
+      </div>
+      {state.status === "loading" ? (
+        <p className="py-4 text-sm text-muted">Loading activity…</p>
+      ) : (
+        <ul className="mt-1 divide-y divide-border/60 border-y border-border/60">
             {state.items.map((item) => {
               const Icon = TYPE_ICONS[item.type] || GitCommitHorizontal
               return (
@@ -102,7 +96,6 @@ export default function GitHubActivity() {
             })}
           </ul>
         )}
-      </CardContent>
-    </Card>
+    </div>
   )
 }

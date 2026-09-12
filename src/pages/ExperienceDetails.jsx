@@ -2,7 +2,6 @@ import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import { ArrowLeft } from "lucide-react"
 import { cv } from "../data/cv"
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 
 export default function ExperienceDetails() {
@@ -56,21 +55,17 @@ export default function ExperienceDetails() {
         </div>
       ) : null}
 
-      <Card className="glass">
-        <CardHeader>
-          <CardTitle>Highlights</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-2 text-sm text-muted">
-            {role.highlights.map((item, hi) => (
-              <li key={`hl-${hi}`} className="flex gap-2">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
+      <div>
+        <h3 className="text-xl font-semibold">Highlights</h3>
+        <ul className="mt-3 divide-y divide-border/60 border-y border-border/60 text-sm text-muted">
+          {role.highlights.map((item, hi) => (
+            <li key={`hl-${hi}`} className="flex gap-3 py-2.5">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

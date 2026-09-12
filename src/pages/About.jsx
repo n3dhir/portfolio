@@ -1,41 +1,43 @@
 import { cv } from "../data/cv"
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
 import GitHubActivity from "../components/GitHubActivity"
 import GitHubCalendar from "../components/GitHubCalendar"
 
+const details = (cv) => [
+  { label: "Name", value: cv.name },
+  { label: "Location", value: cv.location },
+  { label: "Email", value: cv.email },
+  { label: "Phone", value: cv.phone },
+]
+
 export default function About() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       <div>
         <h2 className="text-3xl font-semibold">About</h2>
         <p className="mt-3 text-muted">I’m a pragmatic software engineer who turns ambiguous product needs into reliable systems. I lead full‑stack architecture, payments, and automation work — with a focus on observability, fault-tolerance, and developer ergonomics.</p>
       </div>
-      <Card className="glass">
-        <CardHeader>
-          <CardTitle>Personal Details</CardTitle>
-        </CardHeader>
-        <CardContent className="grid gap-4 md:grid-cols-2">
-          <div>
-            <p className="text-sm text-muted">Name</p>
-            <p className="text-base font-medium">{cv.name}</p>
-          </div>
-          <div>
-            <p className="text-sm text-muted">Location</p>
-            <p className="text-base font-medium">{cv.location}</p>
-          </div>
-          <div>
-            <p className="text-sm text-muted">Email</p>
-            <p className="text-base font-medium">{cv.email}</p>
-          </div>
-          <div>
-            <p className="text-sm text-muted">Phone</p>
-            <p className="text-base font-medium">{cv.phone}</p>
-          </div>
-        </CardContent>
-      </Card>
-      <div>
-        <h3 className="text-xl font-semibold">Languages</h3>
+
+      <section>
+        <div className="flex items-baseline gap-3">
+          <span className="font-mono text-sm text-primary">01</span>
+          <h3 className="text-xl font-semibold">Personal Details</h3>
+        </div>
+        <dl className="mt-2 grid gap-x-8 divide-y divide-border/60 border-y border-border/60 md:grid-cols-2 md:divide-y-0">
+          {details(cv).map((d) => (
+            <div key={d.label} className="flex items-baseline justify-between gap-4 py-3 md:border-b md:border-border/60 md:[&:nth-last-child(-n+2)]:border-b-0">
+              <dt className="text-sm text-muted">{d.label}</dt>
+              <dd className="text-right text-base font-medium">{d.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section>
+        <div className="flex items-baseline gap-3">
+          <span className="font-mono text-sm text-primary">02</span>
+          <h3 className="text-xl font-semibold">Languages</h3>
+        </div>
         <div className="mt-3 flex flex-wrap gap-2">
           {cv.languages.map((lang) => (
             <Badge key={lang.name} variant="outline">
@@ -43,39 +45,48 @@ export default function About() {
             </Badge>
           ))}
         </div>
-      </div>
-      <div className="space-y-3">
-        <div>
+      </section>
+
+      <section>
+        <div className="flex items-baseline gap-3">
+          <span className="font-mono text-sm text-primary">03</span>
           <h3 className="text-xl font-semibold">GitHub activity</h3>
-          <p className="mt-2 text-sm text-muted">What I&apos;ve been pushing, opening, and commenting on lately.</p>
         </div>
-        <GitHubActivity />
-      </div>
-      <div className="space-y-3">
+        <p className="mt-2 text-sm text-muted">What I&apos;ve been pushing, opening, and commenting on lately.</p>
+        <div className="mt-2">
+          <GitHubActivity />
+        </div>
+      </section>
+
+      <section>
         <GitHubCalendar />
-      </div>
+      </section>
+
       {cv.versions?.length ? (
-        <div>
-          <h3 className="text-xl font-semibold">Previous versions</h3>
+        <section>
+          <div className="flex items-baseline gap-3">
+            <span className="font-mono text-sm text-primary">04</span>
+            <h3 className="text-xl font-semibold">Previous versions</h3>
+          </div>
           <p className="mt-2 text-sm text-muted">Earlier designs of this site, kept reachable.</p>
-          <div className="mt-3 space-y-2">
+          <div className="mt-2 divide-y divide-border/60 border-y border-border/60">
             {cv.versions.map((v) => (
               <a
                 key={v.version}
                 href={v.href}
                 target="_blank"
                 rel="noreferrer"
-                className="glass group flex items-center justify-between gap-4 rounded-lg px-4 py-3 transition hover:border-primary/40"
+                className="group flex items-center justify-between gap-4 py-3 transition"
               >
-                <div className="flex items-baseline gap-3">
+                <div className="flex flex-wrap items-baseline gap-x-3">
                   <span className="font-semibold group-hover:text-primary">{v.version}</span>
                   <span className="text-sm text-muted">{v.note}</span>
                 </div>
-                <span className="text-sm text-muted transition group-hover:text-primary">↗</span>
+                <span className="shrink-0 text-sm text-muted transition group-hover:text-primary">↗</span>
               </a>
             ))}
           </div>
-        </div>
+        </section>
       ) : null}
     </div>
   )

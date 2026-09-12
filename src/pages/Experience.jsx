@@ -1,39 +1,30 @@
 import { Link } from "react-router-dom"
+import { ArrowRight } from "lucide-react"
 import { cv } from "../data/cv"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
 
 export default function Experience() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       <div>
         <h2 className="text-3xl font-semibold">Experience</h2>
         <p className="mt-3 text-muted">Production engineering leadership and system design for high-availability SaaS platforms, with emphasis on automation and scalable migrations. Click a role for details.</p>
       </div>
-      <div className="space-y-6">
+      <div className="divide-y divide-border/60 border-y border-border/60">
         {cv.experience.map((role, index) => (
           <Link
             key={role.slug || `${role.role}-${role.period}-${index}`}
             to={`/experience/${role.slug}`}
-            className="block"
+            className="group flex items-baseline gap-4 py-5"
           >
-            <Card className="glass transition hover:border-primary/40">
-              <CardHeader>
-                <CardTitle>{role.role}</CardTitle>
-                <CardDescription>
-                  {role.company} • {role.location} • {role.period}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <ul className="space-y-2 text-sm text-muted">
-                  {role.highlights.map((item, hi) => (
-                    <li key={`${index}-${hi}`} className="flex gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <span className="font-mono text-sm text-primary">0{index + 1}</span>
+            <div className="min-w-0 flex-1">
+              <p className="text-lg font-semibold transition group-hover:text-primary">{role.role}</p>
+              <p className="mt-0.5 text-sm text-muted">
+                {role.company} • {role.location} • {role.period}
+              </p>
+              <p className="mt-1.5 line-clamp-2 text-sm text-muted">{role.highlights[0]}</p>
+            </div>
+            <ArrowRight className="h-5 w-5 shrink-0 self-center text-muted transition group-hover:translate-x-1 group-hover:text-primary" />
           </Link>
         ))}
       </div>

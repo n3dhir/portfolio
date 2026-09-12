@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
 import { createPortal } from "react-dom"
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -61,23 +60,21 @@ export default function GitHubCalendar() {
   if (state.status === "error") return null
 
   return (
-    <Card className="glass">
-      <CardHeader>
-        <div className="flex items-center justify-between gap-4">
-          <CardTitle>
-            {state.status === "loading" ? "Contributions" : `${state.total} contributions in the last year`}
-          </CardTitle>
-          <a
-            className="shrink-0 text-sm whitespace-nowrap text-muted transition hover:text-primary"
-            href={`https://github.com/${state.user}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            @{state.user} ↗
-          </a>
-        </div>
-      </CardHeader>
-      <CardContent>
+    <div>
+      <div className="flex items-center justify-between gap-4">
+        <h4 className="text-xl font-semibold">
+          {state.status === "loading" ? "Contributions" : `${state.total} contributions in the last year`}
+        </h4>
+        <a
+          className="shrink-0 text-sm whitespace-nowrap text-muted transition hover:text-primary"
+          href={`https://github.com/${state.user}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          @{state.user} ↗
+        </a>
+      </div>
+      <div className="mt-2">
         {state.status === "loading" ? (
           <p className="py-4 text-center text-sm text-muted">Loading contributions…</p>
         ) : (
@@ -128,7 +125,7 @@ export default function GitHubCalendar() {
             : null}
           </>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   )
 }

@@ -2,7 +2,6 @@ import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import { ArrowLeft } from "lucide-react"
 import { cv } from "../data/cv"
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
 
@@ -62,30 +61,26 @@ export default function ProjectDetails() {
           <h3 className="text-xl font-semibold">Screenshots</h3>
           <div className="grid gap-4 md:grid-cols-2">
             {screenshots.map((shot, si) => (
-              <Card key={`shot-${si}`} className="glass overflow-hidden">
-                <CardContent className="p-0">
-                  <img
-                    src={shot.src}
-                    alt={shot.caption || `${project.name} screenshot ${si + 1}`}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full object-cover object-top"
-                  />
-                </CardContent>
+              <figure key={`shot-${si}`} className="overflow-hidden rounded-lg border border-border/60">
+                <img
+                  src={shot.src}
+                  alt={shot.caption || `${project.name} screenshot ${si + 1}`}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full object-cover object-top"
+                />
                 {shot.caption ? (
-                  <p className="px-4 py-3 text-sm text-muted">{shot.caption}</p>
+                  <figcaption className="px-4 py-3 text-sm text-muted">{shot.caption}</figcaption>
                 ) : null}
-              </Card>
+              </figure>
             ))}
           </div>
         </div>
       ) : (
-        <Card className="glass">
-          <CardContent className="p-6 text-sm text-muted">
-            Screenshots coming soon — add images to <code className="text-foreground">public/screenshots/{project.slug}/</code> and
-            list them in <code className="text-foreground">src/data/cv.js</code>.
-          </CardContent>
-        </Card>
+        <p className="text-sm text-muted">
+          Screenshots coming soon — add images to <code className="text-foreground">public/screenshots/{project.slug}/</code> and
+          list them in <code className="text-foreground">src/data/cv.js</code>.
+        </p>
       )}
 
       {details.length ? (
@@ -99,21 +94,17 @@ export default function ProjectDetails() {
         </div>
       ) : null}
 
-      <Card className="glass">
-        <CardHeader>
-          <CardTitle>Highlights</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-2 text-sm text-muted">
-            {project.highlights.map((item, hi) => (
-              <li key={`hl-${hi}`} className="flex gap-2">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </CardContent>
-      </Card>
+      <div>
+        <h3 className="text-xl font-semibold">Highlights</h3>
+        <ul className="mt-3 divide-y divide-border/60 border-y border-border/60 text-sm text-muted">
+          {project.highlights.map((item, hi) => (
+            <li key={`hl-${hi}`} className="flex gap-3 py-2.5">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div>
         <h3 className="text-xl font-semibold">Tech</h3>
