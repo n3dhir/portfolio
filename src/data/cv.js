@@ -34,6 +34,12 @@ export const cv = {
         "Managed production deployments on Linux using **Nginx and PM2**, tuned Knex connection pools (100 → 20), and kept CI pipelines green across services.",
         "Engineered **automation** for **scraping, backups, notifications**, and **recurring billing** (cron jobs), plus ops monitoring (**disk-usage alerts to Slack**) — removing manual operations and saving hours each week.",
       ],
+      impact: [
+        "Unlocked **blog publishing** for the business team: from no publishing capability to **one-click deploy** — either generate a structured post from a topic via the LLM pipeline, or feed in unstructured text and get back a formatted, deployment-ready article.",
+        "Removed billing busywork: **automated reconciliation** and in-place cashout editing replaced manual invoice chasing.",
+        "Contained access abuse: **fraud v2** with single-session enforcement stopped concurrent workstation sessions.",
+        "**Zero-breakage** 2026 pricing migration: legacy plans retired with live subscribers untouched.",
+      ],
       tech: ["Angular", "Express.js", "Knex.js", "PostgreSQL", "JWT", "Nginx", "PM2", "Cron Jobs"],
     },
     {
