@@ -1,41 +1,38 @@
 import { Mail, Phone, Globe, Github, Linkedin } from "lucide-react"
 import { cv } from "../data/cv"
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
+
+const channels = (cv) => [
+  { icon: Mail, label: cv.email, href: `mailto:${cv.email}` },
+  { icon: Phone, label: cv.phone, href: `tel:${cv.phone}` },
+  { icon: Globe, label: cv.website, href: cv.website },
+  { icon: Github, label: cv.github, href: cv.github },
+  { icon: Linkedin, label: cv.linkedin, href: cv.linkedin },
+]
 
 export default function Contact() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       <div>
         <h2 className="text-3xl font-semibold">Contact</h2>
         <p className="mt-3 text-muted">Interested in collaborating or working together? Feel free to contact me — I reply quickly.</p>
       </div>
-      <Card className="glass">
-        <CardHeader>
-          <CardTitle>Reach out</CardTitle>
-        </CardHeader>
-        <CardContent className="grid gap-4 md:grid-cols-2">
-          <a className="flex items-center gap-3 text-sm text-muted hover:text-foreground" href={`mailto:${cv.email}`}>
-            <Mail className="h-4 w-4" />
-            {cv.email}
+      <div className="divide-y divide-border/60 border-y border-border/60">
+        {channels(cv).map(({ icon: Icon, label, href }) => (
+          <a
+            key={label}
+            href={href}
+            target={href.startsWith("http") ? "_blank" : undefined}
+            rel={href.startsWith("http") ? "noreferrer" : undefined}
+            className="group flex items-center justify-between gap-4 py-3.5 text-sm text-muted transition hover:text-foreground"
+          >
+            <span className="flex min-w-0 items-center gap-3">
+              <Icon className="h-4 w-4 shrink-0 transition group-hover:text-primary" />
+              <span className="truncate">{label}</span>
+            </span>
+            <span className="shrink-0 transition group-hover:text-primary">↗</span>
           </a>
-          <a className="flex items-center gap-3 text-sm text-muted hover:text-foreground" href={`tel:${cv.phone}`}>
-            <Phone className="h-4 w-4" />
-            {cv.phone}
-          </a>
-          <a className="flex items-center gap-3 text-sm text-muted hover:text-foreground" href={cv.website} target="_blank" rel="noreferrer">
-            <Globe className="h-4 w-4" />
-            {cv.website}
-          </a>
-          <a className="flex items-center gap-3 text-sm text-muted hover:text-foreground" href={cv.github} target="_blank" rel="noreferrer">
-            <Github className="h-4 w-4" />
-            {cv.github}
-          </a>
-          <a className="flex items-center gap-3 text-sm text-muted hover:text-foreground" href={cv.linkedin} target="_blank" rel="noreferrer">
-            <Linkedin className="h-4 w-4" />
-            {cv.linkedin}
-          </a>
-        </CardContent>
-      </Card>
+        ))}
+      </div>
     </div>
   )
 }

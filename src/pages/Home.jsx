@@ -2,8 +2,13 @@ import profile from "../../profile1.png"
 import { cv } from "../data/cv"
 import { Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
-import { Card, CardContent } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
+
+const facts = (cv) => [
+  { label: "Location", value: cv.location },
+  { label: "Current Role", value: "Full-Stack Software Engineer @Drivago" },
+  { label: "Specialties", value: "Full‑stack reliability & automation" },
+]
 
 export default function Home() {
   return (
@@ -35,36 +40,20 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <Card className="glass overflow-hidden">
-          <CardContent className="p-0">
-            <img
-              src={profile}
-              alt="Nadhir Halbouni"
-              className="w-full object-cover object-center h-56 sm:h-72 lg:h-[500px] rounded-md"
-            />
-          </CardContent>
-        </Card>
+        <img
+          src={profile}
+          alt="Nadhir Halbouni"
+          className="w-full rounded-lg object-cover object-center h-56 sm:h-72 lg:h-[500px]"
+        />
       </section>
 
-      <section className="grid gap-6 md:grid-cols-3">
-        <Card className="glass">
-          <CardContent className="p-6">
-            <p className="text-sm">Location</p>
-            <p className="text-sm text-primary font-semibold">{cv.location}</p>
-          </CardContent>
-        </Card>
-        <Card className="glass">
-          <CardContent className="p-6">
-            <p className="text-sm">Current Role</p>
-            <p className="text-sm text-primary font-semibold">Full-Stack Software Engineer @Drivago</p>
-          </CardContent>
-        </Card>
-        <Card className="glass">
-          <CardContent className="p-6">
-            <p className="text-sm">Specialties</p>
-            <p className="text-sm text-primary font-semibold">Full‑stack reliability & automation</p>
-          </CardContent>
-        </Card>
+      <section className="grid gap-x-8 md:grid-cols-3">
+        {facts(cv).map((fact) => (
+          <div key={fact.label} className="border-t border-border/60 py-4">
+            <p className="text-sm text-muted">{fact.label}</p>
+            <p className="mt-1 text-sm font-semibold text-primary">{fact.value}</p>
+          </div>
+        ))}
       </section>
     </div>
   )

@@ -1,15 +1,6 @@
 import { Link } from "react-router-dom"
-import { ArrowLeft, Home } from "lucide-react"
+import { Home } from "lucide-react"
 import { Button } from "../components/ui/button"
-import { Card, CardContent } from "../components/ui/card"
-
-const shortcuts = [
-  { to: "/", label: "Home" },
-  { to: "/projects", label: "Projects" },
-  { to: "/experience", label: "Experience" },
-  { to: "/stack", label: "Stack" },
-  { to: "/contact", label: "Contact" },
-]
 
 export default function NotFound() {
   return (
