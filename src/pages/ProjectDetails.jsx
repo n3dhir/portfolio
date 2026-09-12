@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react"
 import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
+import { renderRich } from "../components/richText"
 
 export default function ProjectDetails() {
   const { slug } = useParams()
@@ -88,7 +89,7 @@ export default function ProjectDetails() {
           <h3 className="text-xl font-semibold">Overview</h3>
           <div className="space-y-3 text-sm leading-relaxed text-muted">
             {details.map((paragraph, di) => (
-              <p key={`detail-${di}`}>{paragraph}</p>
+              <p key={`detail-${di}`}>{renderRich(paragraph)}</p>
             ))}
           </div>
         </div>
@@ -100,7 +101,7 @@ export default function ProjectDetails() {
           {project.highlights.map((item, hi) => (
             <li key={`hl-${hi}`} className="flex gap-3 py-2.5">
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-              <span>{item}</span>
+              <span>{renderRich(item)}</span>
             </li>
           ))}
         </ul>

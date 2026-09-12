@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { cv } from "../data/cv"
+import { renderRich } from "../components/richText"
 
 export default function Experience() {
   return (
@@ -22,7 +23,7 @@ export default function Experience() {
               <p className="mt-0.5 text-sm text-muted">
                 {role.company} • {role.location} • {role.period}
               </p>
-              <p className="mt-1.5 line-clamp-2 text-sm text-muted">{role.highlights[0]}</p>
+              <p className="mt-1.5 line-clamp-2 text-sm text-muted">{renderRich(role.highlights[0])}</p>
             </div>
             <ArrowRight className="h-5 w-5 shrink-0 text-muted transition group-hover:translate-x-1 group-hover:text-primary" />
           </Link>

@@ -2,7 +2,9 @@ import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import { ArrowLeft } from "lucide-react"
 import { cv } from "../data/cv"
+import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
+import { renderRich } from "../components/richText"
 
 export default function ExperienceDetails() {
   const { slug } = useParams()
@@ -47,9 +49,9 @@ export default function ExperienceDetails() {
       {details.length ? (
         <div className="space-y-4">
           <h3 className="text-xl font-semibold">Overview</h3>
-          <div className="max-w-3xl space-y-3 text-sm leading-relaxed text-muted">
+          <div className="space-y-3 text-sm leading-relaxed text-muted">
             {details.map((paragraph, di) => (
-              <p key={`detail-${di}`}>{paragraph}</p>
+              <p key={`detail-${di}`}>{renderRich(paragraph)}</p>
             ))}
           </div>
         </div>
@@ -61,11 +63,22 @@ export default function ExperienceDetails() {
           {role.highlights.map((item, hi) => (
             <li key={`hl-${hi}`} className="flex gap-3 py-2.5">
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-              <span>{item}</span>
+              <span>{renderRich(item)}</span>
             </li>
           ))}
         </ul>
       </div>
+
+      {role.tech?.length ? (
+        <div>
+          <h3 className="text-xl font-semibold">Tech</h3>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {role.tech.map((tech, ti) => (
+              <Badge key={`tech-${ti}`} variant="outline">{tech}</Badge>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </div>
   )
 }
