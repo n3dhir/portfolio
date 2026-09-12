@@ -24,7 +24,7 @@ export default function Experience() {
               </p>
               <p className="mt-1.5 line-clamp-2 text-sm text-muted">{role.highlights[0]}</p>
             </div>
-            <ArrowRight className="h-5 w-5 shrink-0 self-center text-muted transition group-hover:translate-x-1 group-hover:text-primary" />
+            <ArrowRight className="h-5 w-5 shrink-0 text-muted transition group-hover:translate-x-1 group-hover:text-primary" />
           </Link>
         ))}
       </div>

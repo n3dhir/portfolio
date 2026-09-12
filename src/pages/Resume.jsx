@@ -11,7 +11,7 @@ export default function Resume() {
       </div>
       <div className="border-t border-border/60 pt-6">
         <p className="text-lg font-semibold">{cv.name} — {cv.title}</p>
-        <p className="mt-2 max-w-2xl text-sm text-muted">{cv.summary}</p>
+        <p className="mt-2 text-sm text-muted">{cv.summary}</p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Button asChild>
             <a href={resumePdf} target="_blank" rel="noreferrer">

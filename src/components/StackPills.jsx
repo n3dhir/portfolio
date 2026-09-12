@@ -72,18 +72,18 @@ export function ItemIcon({ icon }) {
         alt=""
         aria-hidden="true"
         loading="lazy"
-        className={`h-4 w-4 shrink-0 ${INVERT.has(icon) ? "invert" : ""}`}
+        className={`h-[18px] w-[18px] shrink-0 ${INVERT.has(icon) ? "invert" : ""}`}
       />
     )
   }
   const LucideIcon = LUCIDE_ICONS[icon]
   if (!LucideIcon) return null
-  return <LucideIcon className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+  return <LucideIcon className="h-[18px] w-[18px] shrink-0 text-primary" aria-hidden="true" />
 }
 
 export function StackPill({ icon, label }) {
   return (
-    <span className="inline-flex cursor-default items-center gap-2 rounded-full border border-border bg-white/5 px-3 py-1.5 text-sm font-medium text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/60 hover:shadow-glow">
+    <span className="inline-flex cursor-default items-center gap-2 rounded-md border border-border/70 px-3 py-1.5 text-sm font-medium text-foreground/90 transition-colors duration-200 hover:border-primary/60 hover:text-primary">
       <ItemIcon icon={icon} />
       {label}
     </span>

@@ -42,7 +42,7 @@ export default function ProjectDetails() {
       <div>
         <h2 className="text-3xl font-semibold">{project.name}</h2>
         <p className="mt-2 text-sm text-muted">{project.period}</p>
-        <p className="mt-3 max-w-2xl text-muted">{project.description}</p>
+        <p className="mt-3 text-muted">{project.description}</p>
         {project.links?.length ? (
           <div className="mt-4 flex flex-wrap gap-3">
             {project.links.map((link) => (

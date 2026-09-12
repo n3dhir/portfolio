@@ -1,13 +1,14 @@
 import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
+import { Mail, MapPin, Phone, User } from "lucide-react"
 import GitHubActivity from "../components/GitHubActivity"
 import GitHubCalendar from "../components/GitHubCalendar"
 
 const details = (cv) => [
-  { label: "Name", value: cv.name },
-  { label: "Location", value: cv.location },
-  { label: "Email", value: cv.email },
-  { label: "Phone", value: cv.phone },
+  { icon: User, label: "Name", value: cv.name },
+  { icon: MapPin, label: "Location", value: cv.location },
+  { icon: Mail, label: "Email", value: cv.email, href: `mailto:${cv.email}` },
+  { icon: Phone, label: "Phone", value: cv.phone, href: `tel:${cv.phone.replace(/\s/g, "")}` },
 ]
 
 export default function About() {
@@ -24,10 +25,19 @@ export default function About() {
           <h3 className="text-xl font-semibold">Personal Details</h3>
         </div>
         <dl className="mt-2 grid gap-x-8 divide-y divide-border/60 border-y border-border/60 md:grid-cols-2 md:divide-y-0">
-          {details(cv).map((d) => (
-            <div key={d.label} className="flex items-baseline justify-between gap-4 py-3 md:border-b md:border-border/60 md:[&:nth-last-child(-n+2)]:border-b-0">
-              <dt className="text-sm text-muted">{d.label}</dt>
-              <dd className="text-right text-base font-medium">{d.value}</dd>
+          {details(cv).map(({ icon: Icon, label, value, href }) => (
+            <div key={label} className="flex items-baseline justify-between gap-4 py-3 md:border-b md:border-border/60 md:[&:nth-last-child(-n+2)]:border-b-0">
+              <dt className="flex items-center gap-2 text-sm text-muted">
+                <Icon className="h-3.5 w-3.5" />
+                {label}
+              </dt>
+              {href ? (
+                <a href={href} className="text-right text-base font-medium transition hover:text-primary">
+                  {value}
+                </a>
+              ) : (
+                <dd className="text-right text-base font-medium">{value}</dd>
+              )}
             </div>
           ))}
         </dl>
