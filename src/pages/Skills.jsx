@@ -2,7 +2,7 @@ import { cv } from "../data/cv"
 import { StackPill } from "../components/StackPills"
 
 // Skill label → icon (brand SVG path or lucide name). Falls back to text-only.
-const SKILL_ICONS = {
+export const SKILL_ICONS = {
   // Core
   "Backend Systems": "Server",
   "API Design": "Braces",

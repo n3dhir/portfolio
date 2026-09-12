@@ -2,30 +2,43 @@ import profile from "../../profile1.png"
 import { cv } from "../data/cv"
 import { Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
-import { Badge } from "../components/ui/badge"
-
-const facts = (cv) => [
-  { label: "Location", value: cv.location },
-  { label: "Current Role", value: "Full-Stack Software Engineer @Drivago" },
-  { label: "Specialties", value: "Full‑stack reliability & automation" },
-]
+import { StackPill } from "../components/StackPills"
+import { SKILL_ICONS } from "./Skills"
 
 export default function Home() {
   return (
     <div className="space-y-12">
-      <section className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="space-y-6">
+      <section className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="order-2 hidden lg:order-1 lg:block">
+          <img
+            src={profile}
+            alt="Nadhir Halbouni"
+            className="mx-auto h-80 w-80 rounded-full object-cover object-center"
+          />
+        </div>
+        <div className="order-1 space-y-6 lg:order-2">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-3 py-1 text-xs text-muted">
             <span className="h-2 w-2 rounded-full bg-primary" />
             Available for impactful full‑stack & SaaS work
           </div>
+          <div className="flex items-center gap-4 lg:hidden">
+            <img
+              src={profile}
+              alt="Nadhir Halbouni"
+              className="h-16 w-16 shrink-0 rounded-full object-cover object-center"
+            />
+            <div>
+              <p className="text-sm text-muted">Hi — I’m Nadhir Halbouni, {cv.title}</p>
+              <p className="mt-0.5 text-xs text-muted/70">Ariana, Tunisia</p>
+            </div>
+          </div>
           <div>
-            <p className="text-sm text-muted">Hi — I’m Nadhir Halbouni, {cv.title}</p>
+            <p className="hidden text-sm text-muted lg:block">Hi — I’m Nadhir Halbouni, {cv.title}</p>
             <h1 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
               I build dependable, data-driven SaaS platforms that scale.
             </h1>
           </div>
-          <p className="text-base text-muted md:text-lg">{cv.summary}</p>
+          <p className="text-base text-muted">{cv.summary}</p>
           <div className="flex flex-wrap gap-3">
             <Button asChild>
               <Link to="/contact">Let’s work together</Link>
@@ -34,26 +47,12 @@ export default function Home() {
               <Link to="/projects">View projects</Link>
             </Button>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2.5">
             {cv.skills.core.map((skill) => (
-              <Badge key={skill}>{skill}</Badge>
+              <StackPill key={skill} icon={SKILL_ICONS[skill]} label={skill} />
             ))}
           </div>
         </div>
-        <img
-          src={profile}
-          alt="Nadhir Halbouni"
-          className="w-full rounded-lg object-cover object-center h-56 sm:h-72 lg:h-[500px]"
-        />
-      </section>
-
-      <section className="grid gap-x-8 md:grid-cols-3">
-        {facts(cv).map((fact) => (
-          <div key={fact.label} className="border-t border-border/60 py-4">
-            <p className="text-sm text-muted">{fact.label}</p>
-            <p className="mt-1 text-sm font-semibold text-primary">{fact.value}</p>
-          </div>
-        ))}
       </section>
     </div>
   )
