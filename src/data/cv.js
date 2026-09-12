@@ -35,13 +35,18 @@ export const cv = {
       role: "Software Engineer Intern",
       slug: "drivago-intern",
       period: "Jul 2024 – Aug 2024",
-      // Details: add longer paragraphs here to show them on the role's details page.
-      details: [],
-      highlights: [
-        "Built BI dashboards tracking SaaS metrics (MRR, ARR, churn, ARPU) to support product decisions.",
-        "Designed and optimized PostgreSQL queries for retention analysis and cohort tracking.",
-        "Developed advanced segmentation and filtering systems for backoffice operations (subscriptions, payments, activity).",
+      details: [
+        "Two-month internship on Drivago's **administrator backoffice** — the internal console running agencies, subscriptions, billing, and cashouts. Full-stack work across both repositories (**Angular** frontend, **Express + Knex + PostgreSQL** backend), shipped to production continuously.",
+        "**150+ commits** across financial dashboards, cohort retention, activity monitoring, and billing operations — plus the reliability work dashboards need: global filters, loaders, and aggregation fixes. Details below.",
       ],
+      highlights: [
+        "Built the admin **Financials dashboard**: **MRR, ARR, ARPU**, and subscriptions-evolution graphs with taxed/untaxed switching, plus facturation, cash-in, and invoice-charge tracking.",
+        "Implemented **cohort retention analysis** with per-column sums, totals, and MRR filters; fixed contraction/expansion accounting and refactored the backend into one function serving cohort data and agency lists.",
+        "Created the **agencies activity page from scratch**: session-usage tracking, users/accounts day-activity stats, expiry and inactivity filters, sorting, and sticky headers.",
+        "Extended **agency billing** with in-place cashout editing (status, means of payment, executed_at), date/status/type filters, and service purchases in transaction history.",
+        "Hardened dashboard reliability: **global date filters** replacing per-card ones, loaders on stat cards, churn card, and calendar stats.",
+      ],
+      tech: ["Angular", "Angular Material", "ApexCharts", "Express.js", "Knex.js", "PostgreSQL"],
     },
   ],
   projects: [
