@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, TrendingUp } from "lucide-react"
 import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
@@ -79,6 +79,20 @@ export default function ExperienceDetails() {
           ))}
         </ul>
       </div>
+
+      {role.impact?.length ? (
+        <div>
+          <h3 className="text-xl font-semibold">Impact</h3>
+          <ul className="mt-3 divide-y divide-border/60 border-y border-border/60 text-sm text-muted">
+            {role.impact.map((item, ii) => (
+              <li key={`impact-${ii}`} className="flex gap-3 py-2.5">
+                <TrendingUp className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <span>{renderRich(item)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
 
       {role.tech?.length ? (
         <div>
