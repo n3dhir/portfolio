@@ -4,7 +4,7 @@ import { Router } from "express"
 // never hits browser rate limits. Optional GITHUB_TOKEN raises the quota.
 const GITHUB_USER = process.env.GITHUB_USER || "n3dhir"
 const cache = { data: null, ts: 0 }
-const TTL_MS = 15 * 60 * 1000
+const TTL_MS = 5 * 60 * 1000
 
 function githubHeaders() {
   const headers = { "User-Agent": "portfolio-site", Accept: "application/vnd.github+json" }
