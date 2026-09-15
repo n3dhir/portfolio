@@ -8,7 +8,7 @@ export const cv = {
   github: "https://github.com/n3dhir",
   linkedin: "https://www.linkedin.com/in/nadhir-halbouni/",
   summary:
-    "Full-stack engineer specializing in data-heavy SaaS systems, backend reliability, and automation. Experienced in building and scaling production systems across multiple repositories, handling real-time features, payments, and growth mechanisms. Strong focus on ownership, system design, and delivering end-to-end solutions from database to user experience. Building LLM-powered apps with agents and RAG.",
+    "Full-stack software engineer with 2 years building and scaling **production SaaS systems**, from database to user experience. Strong on backend reliability, system design, and ownership. Now focused on **AI engineering** — taking LLM-powered applications (**agents, RAG, automation**) from idea to deployed, usable products.",
   experience: [
     {
       company: "Drivago",

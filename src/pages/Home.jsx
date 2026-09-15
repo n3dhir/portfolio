@@ -3,6 +3,7 @@ import { cv } from "../data/cv"
 import { Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
 import { StackPill } from "../components/StackPills"
+import { renderRich } from "../components/richText"
 import { SKILL_ICONS } from "./Skills"
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
         <div className="order-1 space-y-6 lg:order-2">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-3 py-1 text-xs text-muted">
             <span className="h-2 w-2 rounded-full bg-primary" />
-            Available for impactful full‑stack & SaaS work
+            Available for full-stack & AI product work
           </div>
           <div className="flex items-center gap-4 lg:hidden">
             <img
@@ -35,10 +36,10 @@ export default function Home() {
           <div>
             <p className="hidden text-sm text-muted lg:block">Hi — I’m Nadhir Halbouni, {cv.title}</p>
             <h1 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">
-              I build dependable, data-driven SaaS platforms that scale.
+              From production SaaS to AI-powered products.
             </h1>
           </div>
-          <p className="text-base text-muted">{cv.summary}</p>
+          <p className="text-base text-muted">{renderRich(cv.summary)}</p>
           <div className="flex flex-wrap gap-3">
             <Button asChild>
               <Link to="/contact">Let’s work together</Link>
@@ -48,7 +49,7 @@ export default function Home() {
             </Button>
           </div>
           <div className="flex flex-wrap gap-2.5">
-            {cv.skills.core.map((skill) => (
+            {["Backend Systems", "REST APIs", "Authentication & Security", "Automation", "LangGraph", "RAG", "LLM Integration", "MCP"].map((skill) => (
               <StackPill key={skill} icon={SKILL_ICONS[skill]} label={skill} />
             ))}
           </div>
