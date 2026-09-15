@@ -1,6 +1,7 @@
 import resumePdf from "../../Nadhir_Halbouni_Resume.pdf"
 import { cv } from "../data/cv"
 import { Button } from "../components/ui/button"
+import { renderRich } from "../components/richText"
 
 export default function Resume() {
   return (
@@ -11,7 +12,7 @@ export default function Resume() {
       </div>
       <div className="border-t border-border/60 pt-6">
         <p className="text-lg font-semibold">{cv.name} — {cv.title}</p>
-        <p className="mt-2 text-sm text-muted">{cv.summary}</p>
+        <p className="mt-2 text-sm text-muted">{renderRich(cv.summary)}</p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Button asChild>
             <a href={resumePdf} target="_blank" rel="noreferrer">
