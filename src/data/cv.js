@@ -73,8 +73,8 @@ export const cv = {
       details: [
         "AI-Flow pairs a FastAPI backend with a React frontend, served as a single deploy: the API and the static bundle run from one process.",
         "The backend runs a LangGraph agent with **Postgres checkpointing** for conversation state and long-term memory. If a provider fails, requests **fall back** across Ollama, Gemini, Mistral, and Groq.",
-        "The agent has 7 tools: a safe-eval calculator, keyless Open-Meteo weather, Tavily web search, per-thread document search, a clock, and explicit remember/recall memory. Uploads (PDF, DOCX, TXT, MD, PY, CSV) are split into 900/150 chunks, embedded with **MiniLM (fully local)**, and retrieved top-4 scoped to the conversation — vectors and checkpoints are **fully purged** when a conversation is deleted.",
-        "The frontend streams over **SSE** with per-tool start/finish traces that persist and replay on reload. Failures surface as readable messages, drops mid-answer are continued, and generation can be stopped or retried. Voice input runs **fully local** (browser recording → ffmpeg → whisper-cli) and lands as an editable draft. Auth is JWT with bcrypt, rotating refresh tokens, and per-user conversation isolation.",
+        "The agent has 7 tools: a safe-eval calculator, keyless Open-Meteo weather, Tavily web search, per-thread document search, a timezone-aware clock, and explicit remember/recall memory. Uploads (PDF, DOCX, TXT, MD, PY, CSV) are split into 900/150 chunks, embedded with **MiniLM (fully local)**, and retrieved top-4 scoped to the conversation — vectors and checkpoints are **fully purged** when a conversation is deleted.",
+        "The frontend streams over **SSE** with per-tool start/finish traces that persist and replay on reload. Failures surface as readable messages, if a connection drops mid-answer the stream picks up where it left off, and generation can be stopped or retried. Voice input runs **fully local** (browser recording → ffmpeg → whisper-cli) and lands as an editable draft. Auth is JWT with bcrypt, rotating refresh tokens, and per-user conversation isolation.",
       ],
       // Screenshots: drop image files in public/screenshots/aiflow/ and list them here.
       screenshots: [],
@@ -99,11 +99,11 @@ export const cv = {
       slug: "buddy",
       period: "Sep 2026",
       description:
-        "Conversational money tracker: log spending by messaging a Telegram bot, ask for summaries in your AI assistant, or check the web UI — one shared backend.",
+        "Conversational money tracker: log spending by messaging a **Telegram bot**, ask for summaries in your **AI assistant**, or check the **web UI** — one shared backend.",
       details: [
-        "Buddy stores everything in one Postgres database (Tunis time, TND by default) and exposes it three ways: chat via MCP tools, a React web UI over a REST API, and a Telegram bot. All three call the same tool functions behind the same zod schemas.",
-        "Time handling uses Intl with Africa/Tunis rather than a fixed offset, and categories and currencies stay free-form and normalized. Auth is per-user rows with 30-day session JWTs, bcrypt hashing, and revocable scoped API tokens (buddy_-prefixed, sha256 at rest) that also work as MCP credentials — revoking a token automatically unlinks the Telegram chats using it.",
-        "The Telegram bot supports expense, income, summary, breakdown, list, and delete commands with inline Undo buttons. Optional Ollama parsing classifies free text and voice notes into intents, but reads answer instantly while writes always wait for a Confirm press (intents expire after 5 minutes). Voice notes are capped at 120 seconds and transcribed locally with whisper.cpp. The dashboard has period pills, a net hero, CSS category bars, entry filters with edit/delete dialogs, and a tokens page with live scope editing — and no live sync by design, you refresh to see chat-made changes.",
+        "Buddy stores everything in one Postgres database (Tunis time, TND by default) and exposes it three ways: chat via MCP tools, a React web UI over a REST API, and a Telegram bot. All three call the **same tool functions** behind the **same zod schemas**.",
+        "Time handling uses Intl with Africa/Tunis rather than a fixed offset, and categories and currencies stay free-form and normalized. Auth is per-user rows with 30-day session JWTs, bcrypt hashing, and **revocable scoped API tokens** (buddy_-prefixed, sha256 at rest) that also work as MCP credentials — revoking a token **automatically unlinks** the Telegram chats using it.",
+        "The Telegram bot supports expense, income, summary, breakdown, list, and delete commands with inline Undo buttons. Optional Ollama parsing classifies free text and voice notes into intents, but the model **never touches the database** — it only proposes, and validated code plus your **Confirm** tap executes. Reads answer instantly while writes always wait for confirmation (intents expire after 5 minutes). Voice notes up to 2 minutes, transcribed locally with whisper.cpp. The dashboard has period pills, a net hero, CSS category bars, entry filters with edit/delete dialogs, and a tokens page with live scope editing.",
       ],
       // Screenshots: drop image files in public/screenshots/buddy/ and list them here.
       screenshots: [],
@@ -113,9 +113,9 @@ export const cv = {
         caption: "Full walkthrough — Telegram bot, MCP, and web dashboard",
       },
       highlights: [
-        "Built a Telegram bot that logs expenses from everyday messages and voice notes, with human-in-the-loop confirmation before anything is saved.",
-        "Connected the same backend to AI assistants via MCP (Claude, opencode) and to a web UI, so totals and spending history stay consistent everywhere.",
-        "Designed private per-user accounts with revocable access tokens.",
+        "Built a Telegram bot that logs expenses from everyday messages and voice notes, with **human-in-the-loop confirmation** before anything is saved.",
+        "Connected the same backend to AI assistants via **MCP** (Claude, opencode) and to a web UI, so totals and spending history stay consistent everywhere.",
+        "Designed private per-user accounts with **revocable access tokens**.",
       ],
       tech: ["TypeScript", "Node.js", "Express", "MCP SDK", "PostgreSQL", "JWT", "whisper.cpp", "Telegram Bot API"],
       links: [
