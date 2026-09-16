@@ -69,6 +69,25 @@ export default function ProjectDetails() {
         ) : null}
       </div>
 
+      {project.demoVideo?.src ? (
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">Demo</h3>
+          <figure className="overflow-hidden rounded-lg border border-border/60">
+            <video
+              src={project.demoVideo.src}
+              poster={project.demoVideo.poster}
+              controls
+              preload="metadata"
+              playsInline
+              className="aspect-video w-full bg-black"
+            />
+            {project.demoVideo.caption ? (
+              <figcaption className="px-4 py-3 text-sm text-muted">{project.demoVideo.caption}</figcaption>
+            ) : null}
+          </figure>
+        </div>
+      ) : null}
+
       {screenshots.length ? (
         <div className="space-y-4">
           <h3 className="text-xl font-semibold">Screenshots</h3>
@@ -160,7 +179,7 @@ export default function ProjectDetails() {
             </div>
           ) : null}
         </div>
-      ) : (
+      ) : project.demoVideo?.src ? null : (
         <p className="text-sm text-muted">
           Screenshots coming soon — add images to <code className="text-foreground">public/screenshots/{project.slug}/</code> and
           list them in <code className="text-foreground">src/data/cv.js</code>.
