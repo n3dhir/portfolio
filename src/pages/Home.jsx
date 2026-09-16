@@ -1,4 +1,3 @@
-import profile from "../../profile1.png"
 import { cv } from "../data/cv"
 import { Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
@@ -12,7 +11,7 @@ export default function Home() {
       <section className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="order-2 hidden lg:order-1 lg:block">
           <img
-            src={profile}
+            src="/profile.png"
             alt="Nadhir Halbouni"
             className="mx-auto h-80 w-80 rounded-full object-cover object-center"
           />
@@ -24,7 +23,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4 lg:hidden">
             <img
-              src={profile}
+              src="/profile.png"
               alt="Nadhir Halbouni"
               className="h-16 w-16 shrink-0 rounded-full object-cover object-center"
             />
@@ -49,7 +48,7 @@ export default function Home() {
             </Button>
           </div>
           <div className="flex flex-wrap gap-2.5">
-            {["Backend Systems", "REST APIs", "Authentication & Security", "Automation", "LangGraph", "RAG", "LLM Integration", "MCP"].map((skill) => (
+            {cv.heroSkills.map((skill) => (
               <StackPill key={skill} icon={SKILL_ICONS[skill]} label={skill} />
             ))}
           </div>

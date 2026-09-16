@@ -11,12 +11,12 @@ function UseRow({ item }) {
       </span>
       {item.desc ? <p className="truncate text-sm text-muted sm:min-w-0 sm:flex-1">{item.desc}</p> : null}
       {item.href ? (
-        <ArrowUpRight className="h-4 w-4 shrink-0 text-muted opacity-0 transition group-hover:opacity-100 group-hover:text-primary" />
+        <ArrowUpRight className="absolute right-2 top-2 h-4 w-4 shrink-0 text-muted transition group-hover:text-primary sm:static sm:opacity-0 sm:group-hover:opacity-100" />
       ) : null}
     </>
   )
   const className =
-    "group flex min-w-0 flex-col gap-0.5 rounded-md px-2 py-1.5 transition hover:bg-white/[0.04] sm:flex-row sm:items-center sm:gap-3"
+    "group relative flex min-w-0 flex-col gap-0.5 rounded-md px-2 py-1.5 pr-7 transition hover:bg-white/[0.04] sm:flex-row sm:items-center sm:gap-3 sm:pr-2"
   if (item.href) {
     return (
       <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className={className}>

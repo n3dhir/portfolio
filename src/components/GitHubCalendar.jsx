@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react"
 import { createPortal } from "react-dom"
+import { ArrowUpRight } from "lucide-react"
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -66,12 +67,12 @@ export default function GitHubCalendar() {
           {state.status === "loading" ? "Contributions" : `${state.total} contributions in the last year`}
         </h4>
         <a
-          className="shrink-0 text-sm whitespace-nowrap text-muted transition hover:text-primary"
+          className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-sm text-muted transition hover:text-primary"
           href={`https://github.com/${state.user}`}
           target="_blank"
           rel="noreferrer"
         >
-          @{state.user} ↗
+          @{state.user} <ArrowUpRight className="h-3.5 w-3.5" />
         </a>
       </div>
       <div className="mt-2">

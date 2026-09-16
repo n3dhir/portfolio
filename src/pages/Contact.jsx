@@ -1,4 +1,4 @@
-import { Mail, Phone, Globe, Github, Linkedin } from "lucide-react"
+import { ArrowUpRight, Mail, Phone, Globe, Github, Linkedin } from "lucide-react"
 import { cv } from "../data/cv"
 
 const channels = (cv) => [
@@ -29,7 +29,7 @@ export default function Contact() {
               <Icon className="h-4 w-4 shrink-0 transition group-hover:text-primary" />
               <span className="truncate">{label}</span>
             </span>
-            <span className="shrink-0 transition group-hover:text-primary">↗</span>
+            <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition group-hover:text-primary" />
           </a>
         ))}
       </div>
