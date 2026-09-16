@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import { MessageCircle, Send, X } from "lucide-react"
-import { renderRich } from "./richText"
 
 const SUGGESTIONS = [
   "What has he built with AI?",
@@ -74,16 +75,53 @@ export default function ChatWidget() {
           </div>
           <div ref={boxRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-3">
             {messages.map((m, i) => (
-              <p
+              <div
                 key={i}
-                className={`whitespace-pre-wrap rounded-lg px-3 py-2 text-sm leading-relaxed ${
+                className={`rounded-lg px-3 py-2 text-sm leading-relaxed ${
                   m.role === "user"
                     ? "ml-8 bg-primary/20 text-foreground"
                     : "mr-8 bg-white/5 text-muted"
                 }`}
               >
-                {m.role === "assistant" ? renderRich(m.content) : m.content}
-              </p>
+                {m.role === "assistant" ? (
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      a: ({ href, children }) => (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-primary underline underline-offset-2 hover:opacity-80"
+                        >
+                          {children}
+                        </a>
+                      ),
+                      p: ({ children }) => <span className="whitespace-pre-wrap">{children}</span>,
+                      strong: ({ children }) => (
+                        <strong className="font-semibold text-foreground">{children}</strong>
+                      ),
+                      table: ({ children }) => (
+                        <div className="-mx-1 overflow-x-auto">
+                          <table className="w-full border-collapse text-xs">{children}</table>
+                        </div>
+                      ),
+                      th: ({ children }) => (
+                        <th className="border-b border-border px-2 py-1.5 text-left font-semibold text-foreground">
+                          {children}
+                        </th>
+                      ),
+                      td: ({ children }) => (
+                        <td className="border-b border-border/50 px-2 py-1.5 align-top">{children}</td>
+                      ),
+                    }}
+                  >
+                    {m.content}
+                  </ReactMarkdown>
+                ) : (
+                  <span className="whitespace-pre-wrap">{m.content}</span>
+                )}
+              </div>
             ))}
             {busy ? <p className="mr-8 rounded-lg bg-white/5 px-3 py-2 text-sm text-muted">…</p> : null}
           </div>
