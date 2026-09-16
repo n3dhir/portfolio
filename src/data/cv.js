@@ -69,19 +69,24 @@ export const cv = {
       slug: "aiflow",
       period: "Aug 2026 – Present",
       description:
-        "Full-stack AI assistant pairing a LangGraph tool-calling agent with document-grounded answers and push-to-talk voice input.",
+        "Full-stack AI assistant pairing a **LangGraph tool-calling agent** with **document-grounded answers** and push-to-talk voice input.",
       details: [
         "AI-Flow pairs a FastAPI backend with a React frontend, served as a single deploy: the API and the static bundle run from one process.",
-        "The backend runs a LangGraph agent with Postgres checkpointing for conversation state and long-term memory. If a provider fails, requests fall back across Ollama, Gemini, Mistral, and Groq.",
-        "The agent has 7 tools: a safe-eval calculator, keyless Open-Meteo weather, Tavily web search, per-thread document search, a clock, and explicit remember/recall memory. Uploads (PDF, DOCX, TXT, MD, PY, CSV) are split into 900/150 chunks, embedded with MiniLM, and retrieved top-4 scoped to the conversation — vectors and checkpoints are fully purged when a conversation is deleted.",
-        "The frontend streams over SSE with per-tool start/finish traces that persist and replay on reload. Failures surface as readable messages, drops mid-answer are continued, and generation can be stopped or retried. Voice input runs fully local (browser recording → ffmpeg → whisper-cli) and lands as an editable draft. Auth is JWT with bcrypt, rotating refresh tokens, and per-user conversation isolation.",
+        "The backend runs a LangGraph agent with **Postgres checkpointing** for conversation state and long-term memory. If a provider fails, requests **fall back** across Ollama, Gemini, Mistral, and Groq.",
+        "The agent has 7 tools: a safe-eval calculator, keyless Open-Meteo weather, Tavily web search, per-thread document search, a clock, and explicit remember/recall memory. Uploads (PDF, DOCX, TXT, MD, PY, CSV) are split into 900/150 chunks, embedded with **MiniLM (fully local)**, and retrieved top-4 scoped to the conversation — vectors and checkpoints are **fully purged** when a conversation is deleted.",
+        "The frontend streams over **SSE** with per-tool start/finish traces that persist and replay on reload. Failures surface as readable messages, drops mid-answer are continued, and generation can be stopped or retried. Voice input runs **fully local** (browser recording → ffmpeg → whisper-cli) and lands as an editable draft. Auth is JWT with bcrypt, rotating refresh tokens, and per-user conversation isolation.",
       ],
       // Screenshots: drop image files in public/screenshots/aiflow/ and list them here.
       screenshots: [],
+      demoVideo: {
+        src: "/videos/aiflow-demo.mp4",
+        poster: "/videos/aiflow-demo-poster.jpg",
+        caption: "Full walkthrough — chat, tools, documents, memory, and voice input",
+      },
       highlights: [
-        "Engineered a LangGraph agent with 7 tools (web search, calculator, weather, RAG over uploads, long-term memory), streaming SSE responses with live tool-call progress.",
-        "Built a RAG pipeline (PDF/DOCX ingestion, chunking, pgvector similarity search) plus persistent conversation memory backed by a Postgres checkpointer.",
-        "Added push-to-talk voice input via a whisper.cpp STT endpoint (ffmpeg normalization, timeout-guarded subprocesses, transcribe-to-draft UX).",
+        "Engineered a **LangGraph agent** with 7 tools (web search, calculator, weather, RAG over uploads, long-term memory), streaming SSE responses with live tool-call progress.",
+        "Built a **RAG pipeline** (PDF/DOCX ingestion, chunking, pgvector similarity search) plus persistent conversation memory backed by a Postgres checkpointer.",
+        "Added push-to-talk **voice input** via a whisper.cpp STT endpoint (ffmpeg normalization, timeout-guarded subprocesses, transcribe-to-draft UX).",
       ],
       tech: ["Python", "FastAPI", "LangGraph", "React", "PostgreSQL + pgvector", "Ollama", "whisper.cpp"],
       links: [
