@@ -33,6 +33,7 @@ export default function CommandPalette() {
   const [active, setActive] = useState(0)
   const navigate = useNavigate()
   const inputRef = useRef(null)
+  const activeRef = useRef(null)
   const entries = useMemo(buildEntries, [])
 
   const results = useMemo(() => {
@@ -46,6 +47,10 @@ export default function CommandPalette() {
   useEffect(() => {
     setActive(0)
   }, [query])
+
+  useEffect(() => {
+    activeRef.current?.scrollIntoView({ block: "nearest" })
+  }, [active])
 
   useEffect(() => {
     const onKey = (e) => {
@@ -120,6 +125,7 @@ export default function CommandPalette() {
             results.map((entry, i) => (
               <button
                 key={entry.to}
+                ref={i === active ? activeRef : undefined}
                 onClick={() => go(entry.to)}
                 onMouseEnter={() => setActive(i)}
                 className={`flex w-full items-center justify-between gap-4 rounded-md px-3 py-2 text-left text-sm transition ${

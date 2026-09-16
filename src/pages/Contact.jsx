@@ -27,7 +27,7 @@ export default function Contact() {
           >
             <span className="flex min-w-0 items-center gap-3">
               <Icon className="h-4 w-4 shrink-0 transition group-hover:text-primary" />
-              <span className="truncate">{label}</span>
+              <span className="truncate" title={label}>{label}</span>
             </span>
             <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition group-hover:text-primary" />
           </a>

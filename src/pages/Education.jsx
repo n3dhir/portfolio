@@ -57,7 +57,7 @@ export default function Education() {
             >
               <span className="flex min-w-0 items-center gap-2.5">
                 {cert.icon ? <ItemIcon icon={cert.icon} /> : null}
-                <span className="truncate">{cert.label}</span>
+                <span className="truncate" title={cert.label}>{cert.label}</span>
               </span>
               <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition group-hover:text-primary" />
             </a>
