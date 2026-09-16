@@ -9,7 +9,7 @@ export default function Projects() {
     <div className="space-y-10">
       <div>
         <h2 className="text-3xl font-semibold">Projects</h2>
-        <p className="mt-3 text-muted">Selected products and engineering work. Click a project for details, screenshots, and demos.</p>
+        <p className="mt-3 text-muted">Selected products and engineering work. Click a project for details, demos, and galleries.</p>
       </div>
 
       <section>
