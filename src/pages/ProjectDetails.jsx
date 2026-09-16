@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import { ArrowLeft, ChevronLeft, ChevronRight, X } from "lucide-react"
+import { ArrowLeft, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react"
 import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
@@ -76,26 +76,35 @@ export default function ProjectDetails() {
             {screenshots.slice(0, 5).map((shot, si) => {
               const isFirst = si === 0
               const hasMore = si === 4 && screenshots.length > 5
+              const span = screenshots.length === 1
+                ? "col-span-2 lg:col-span-4"
+                : isFirst
+                  ? "col-span-2 aspect-video lg:row-span-2 lg:aspect-auto lg:h-full lg:min-h-[320px]"
+                  : "aspect-video"
               return (
                 <button
                   key={`shot-${si}`}
                   type="button"
                   onClick={() => setSelected(si)}
                   aria-label={`View ${shot.caption || `screenshot ${si + 1}`} fullscreen`}
-                  className={`group relative block w-full cursor-zoom-in overflow-hidden rounded-lg border border-border/60 ${isFirst ? "col-span-2 aspect-video lg:row-span-2 lg:aspect-auto lg:h-full lg:min-h-[320px]" : "aspect-video"}`}
+                  className={`group relative block w-full cursor-zoom-in overflow-hidden rounded-lg border border-border/60 ${span}`}
                 >
                   <img
                     src={shot.src}
                     alt={shot.caption || `${project.name} screenshot ${si + 1}`}
                     loading="lazy"
                     decoding="async"
-                    className={`w-full object-cover object-top transition group-hover:scale-[1.02] ${isFirst ? "aspect-video lg:h-full" : "aspect-video"}`}
+                    className={`w-full object-cover object-top transition duration-500 ease-out group-hover:scale-105 ${isFirst ? "aspect-video lg:h-full" : "aspect-video"}`}
                   />
                   {hasMore ? (
                     <span className="absolute inset-0 flex items-center justify-center bg-black/60 text-2xl font-semibold text-white">
                       +{screenshots.length - 5}
                     </span>
-                  ) : null}
+                  ) : (
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/0 transition duration-300 group-hover:bg-black/35">
+                      <Maximize2 className="h-7 w-7 scale-75 text-white opacity-0 transition duration-300 group-hover:scale-100 group-hover:opacity-100" />
+                    </span>
+                  )}
                 </button>
               )
             })}

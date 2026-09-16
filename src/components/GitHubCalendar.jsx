@@ -62,8 +62,8 @@ export default function GitHubCalendar() {
 
   return (
     <div>
-      <div className="flex items-center justify-between gap-4">
-        <h4 className="text-xl font-semibold">
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+        <h4 className="text-lg font-semibold sm:text-xl">
           {state.status === "loading" ? "Contributions" : `${state.total} contributions in the last year`}
         </h4>
         <a
