@@ -106,9 +106,12 @@ export const cv = {
         "The Telegram bot supports expense, income, summary, breakdown, list, and delete commands with inline Undo buttons. Optional Ollama parsing classifies free text and voice notes into intents, but reads answer instantly while writes always wait for a Confirm press (intents expire after 5 minutes). Voice notes are capped at 120 seconds and transcribed locally with whisper.cpp. The dashboard has period pills, a net hero, CSS category bars, entry filters with edit/delete dialogs, and a tokens page with live scope editing — and no live sync by design, you refresh to see chat-made changes.",
       ],
       // Screenshots: drop image files in public/screenshots/buddy/ and list them here.
-      screenshots: [
-        { src: "/screenshots/buddy/dashboard.png", caption: "Dashboard — net hero, category breakdown, and entries" },
-      ],
+      screenshots: [],
+      demoVideo: {
+        src: "/videos/buddy-demo.mp4",
+        poster: "/videos/buddy-demo-poster.jpg",
+        caption: "Full walkthrough — Telegram bot, MCP, and web dashboard",
+      },
       highlights: [
         "Built a Telegram bot that logs expenses from everyday messages and voice notes, with human-in-the-loop confirmation before anything is saved.",
         "Connected the same backend to AI assistants via MCP (Claude, opencode) and to a web UI, so totals and spending history stay consistent everywhere.",
