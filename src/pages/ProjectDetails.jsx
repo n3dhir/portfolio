@@ -1,6 +1,6 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, ChevronLeft, ChevronRight, X } from "lucide-react"
 import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
@@ -30,6 +30,18 @@ export default function ProjectDetails() {
 
   const screenshots = project.screenshots || []
   const details = project.details || []
+  const [selected, setSelected] = useState(null)
+
+  useEffect(() => {
+    if (selected === null) return
+    const onKey = (ev) => {
+      if (ev.key === "Escape") setSelected(null)
+      if (ev.key === "ArrowRight") setSelected((s) => (s + 1) % screenshots.length)
+      if (ev.key === "ArrowLeft") setSelected((s) => (s - 1 + screenshots.length) % screenshots.length)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [selected])
 
   return (
     <div className="space-y-8">
@@ -43,7 +55,7 @@ export default function ProjectDetails() {
       <div>
         <h2 className="text-3xl font-semibold">{project.name}</h2>
         <p className="mt-2 text-sm text-muted">{project.period}</p>
-        <p className="mt-3 text-muted">{project.description}</p>
+        <p className="mt-3 text-muted">{renderRich(project.description)}</p>
         {project.links?.length ? (
           <div className="mt-4 flex flex-wrap gap-3">
             {project.links.map((link) => (
@@ -60,22 +72,84 @@ export default function ProjectDetails() {
       {screenshots.length ? (
         <div className="space-y-4">
           <h3 className="text-xl font-semibold">Screenshots</h3>
-          <div className="grid gap-4 md:grid-cols-2">
-            {screenshots.map((shot, si) => (
-              <figure key={`shot-${si}`} className="overflow-hidden rounded-lg border border-border/60">
-                <img
-                  src={shot.src}
-                  alt={shot.caption || `${project.name} screenshot ${si + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full object-cover object-top"
-                />
-                {shot.caption ? (
-                  <figcaption className="px-4 py-3 text-sm text-muted">{shot.caption}</figcaption>
-                ) : null}
-              </figure>
-            ))}
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {screenshots.slice(0, 5).map((shot, si) => {
+              const isFirst = si === 0
+              const hasMore = si === 4 && screenshots.length > 5
+              return (
+                <button
+                  key={`shot-${si}`}
+                  type="button"
+                  onClick={() => setSelected(si)}
+                  aria-label={`View ${shot.caption || `screenshot ${si + 1}`} fullscreen`}
+                  className={`group relative block w-full cursor-zoom-in overflow-hidden rounded-lg border border-border/60 ${isFirst ? "col-span-2 aspect-video lg:row-span-2 lg:aspect-auto lg:h-full lg:min-h-[320px]" : "aspect-video"}`}
+                >
+                  <img
+                    src={shot.src}
+                    alt={shot.caption || `${project.name} screenshot ${si + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                    className={`w-full object-cover object-top transition group-hover:scale-[1.02] ${isFirst ? "aspect-video lg:h-full" : "aspect-video"}`}
+                  />
+                  {hasMore ? (
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/60 text-2xl font-semibold text-white">
+                      +{screenshots.length - 5}
+                    </span>
+                  ) : null}
+                </button>
+              )
+            })}
           </div>
+          {selected !== null && screenshots[selected] ? (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
+              onClick={() => setSelected(null)}
+            >
+              <button
+                type="button"
+                onClick={() => setSelected(null)}
+                aria-label="Close fullscreen view"
+                className="absolute top-4 right-4 rounded-md border border-border bg-background/80 p-2 text-muted transition hover:text-primary"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              <button
+                type="button"
+                onClick={(ev) => {
+                  ev.stopPropagation()
+                  setSelected((selected - 1 + screenshots.length) % screenshots.length)
+                }}
+                aria-label="Previous screenshot"
+                className="absolute left-3 rounded-md border border-border bg-background/80 p-2 text-muted transition hover:text-primary sm:left-6"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <figure className="max-h-full max-w-5xl" onClick={(ev) => ev.stopPropagation()}>
+                <img
+                  src={screenshots[selected].src}
+                  alt={screenshots[selected].caption || `${project.name} screenshot ${selected + 1}`}
+                  className="max-h-[76vh] w-auto max-w-full rounded-lg object-contain"
+                />
+                <figcaption className="mt-3 flex items-center justify-center gap-3 text-center text-sm text-muted">
+                  <span>{screenshots[selected].caption}</span>
+                  <span className="shrink-0 font-mono text-xs">
+                    {selected + 1} / {screenshots.length}
+                  </span>
+                </figcaption>
+              </figure>
+              <button
+                type="button"
+                onClick={(ev) => {
+                  ev.stopPropagation()
+                  setSelected((selected + 1) % screenshots.length)
+                }}
+                aria-label="Next screenshot"
+                className="absolute right-3 rounded-md border border-border bg-background/80 p-2 text-muted transition hover:text-primary sm:right-6"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          ) : null}
         </div>
       ) : (
         <p className="text-sm text-muted">
