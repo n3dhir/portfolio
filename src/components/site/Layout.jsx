@@ -1,6 +1,7 @@
 import NavBar from "./NavBar"
 import Footer from "./Footer"
 import CommandPalette from "../CommandPalette"
+import ChatWidget from "../ChatWidget"
 
 export default function Layout({ children }) {
   return (
@@ -9,6 +10,7 @@ export default function Layout({ children }) {
       <main className="container-wide py-12 flex-1">{children}</main>
       <Footer />
       <CommandPalette />
+      <ChatWidget />
     </div>
   )
 }
