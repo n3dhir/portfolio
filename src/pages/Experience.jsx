@@ -8,7 +8,7 @@ export default function Experience() {
     <div className="space-y-10">
       <div>
         <h2 className="text-3xl font-semibold">Experience</h2>
-        <p className="mt-3 text-muted">Production engineering leadership and system design for high-availability SaaS platforms, with emphasis on automation and scalable migrations. Click a role for details.</p>
+        <p className="mt-3 text-muted">Production engineering ownership and system design for high-availability SaaS platforms, with emphasis on automation and scalable migrations. Click a role for details.</p>
       </div>
       <div className="divide-y divide-border/60 border-y border-border/60">
         {cv.experience.map((role, index) => (
@@ -23,7 +23,7 @@ export default function Experience() {
                 src={role.logo}
                 alt={`${role.company} logo`}
                 loading="lazy"
-                className="h-9 w-9 shrink-0 self-start rounded-lg object-cover"
+                className="h-11 w-11 shrink-0 self-start rounded-xl object-cover shadow-lg ring-1 ring-white/15"
               />
             ) : null}
             <div className="min-w-0 flex-1">

@@ -1,5 +1,7 @@
+import { ArrowUpRight } from "lucide-react"
 import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
+import { ItemIcon } from "../components/StackPills"
 
 export default function Education() {
   return (
@@ -16,12 +18,22 @@ export default function Education() {
         </div>
         <div className="mt-2 divide-y divide-border/60 border-y border-border/60">
           {cv.education.map((item, ei) => (
-            <div key={`${item.degree}-${item.period}-${ei}`} className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4">
-              <div className="min-w-0">
-                <p className="text-lg font-semibold">{item.degree}</p>
-                <p className="mt-0.5 text-sm text-muted">
-                  {item.school} • {item.location}
-                </p>
+            <div key={`${item.degree}-${item.period}-${ei}`} className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 py-4">
+              <div className="flex min-w-0 items-center gap-4">
+                {item.icon ? (
+                  <img
+                    src={item.icon}
+                    alt={`${item.school} logo`}
+                    loading="lazy"
+                    className="h-10 w-auto shrink-0 rounded-md bg-white px-2 py-1"
+                  />
+                ) : null}
+                <div className="min-w-0">
+                  <p className="text-lg font-semibold">{item.degree}</p>
+                  <p className="mt-0.5 text-sm text-muted">
+                    {item.school} • {item.location}
+                  </p>
+                </div>
               </div>
               <Badge variant="outline" className="shrink-0">{item.period}</Badge>
             </div>
@@ -43,8 +55,11 @@ export default function Education() {
               rel="noreferrer"
               className="group flex items-center justify-between gap-4 py-3 text-sm text-muted transition hover:text-foreground"
             >
-              <span>{cert.label}</span>
-              <span className="shrink-0 transition group-hover:text-primary">↗</span>
+              <span className="flex min-w-0 items-center gap-2.5">
+                {cert.icon ? <ItemIcon icon={cert.icon} /> : null}
+                <span className="truncate">{cert.label}</span>
+              </span>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition group-hover:text-primary" />
             </a>
           ))}
         </div>

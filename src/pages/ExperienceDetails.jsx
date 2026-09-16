@@ -45,7 +45,7 @@ export default function ExperienceDetails() {
             <img
               src={role.logo}
               alt={`${role.company} logo`}
-              className="h-12 w-12 shrink-0 rounded-xl object-cover"
+              className="h-14 w-14 shrink-0 rounded-2xl object-cover shadow-lg ring-1 ring-white/15"
             />
           ) : null}
           <div>

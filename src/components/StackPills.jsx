@@ -61,7 +61,7 @@ const LUCIDE_ICONS = {
 }
 
 // Monochrome-black SVGs that need inversion to white on dark pills.
-const INVERT = new Set(["/icons/ollama.svg", "/icons/langchain.svg", "/icons/express.svg", "/icons/posthog.svg", "/icons/googlecalendar.svg"])
+const INVERT = new Set(["/icons/ollama.svg", "/icons/langchain.svg", "/icons/express.svg", "/icons/posthog.svg", "/icons/freecodecamp.svg", "/icons/github.svg", "/icons/githubcopilot.svg", "/icons/opencode.svg", "/icons/openai.svg", "/icons/gitlens.svg"])
 
 export function ItemIcon({ icon }) {
   if (!icon) return null
@@ -72,7 +72,7 @@ export function ItemIcon({ icon }) {
         alt=""
         aria-hidden="true"
         loading="lazy"
-        className={`h-[18px] w-[18px] shrink-0 ${INVERT.has(icon) ? "invert" : ""}`}
+        className={`h-[18px] w-auto max-w-[38px] shrink-0 ${INVERT.has(icon) ? "invert" : ""}`}
       />
     )
   }

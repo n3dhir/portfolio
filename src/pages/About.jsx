@@ -1,6 +1,6 @@
 import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
-import { Mail, MapPin, Phone, User } from "lucide-react"
+import { ArrowUpRight, Mail, MapPin, Phone, User } from "lucide-react"
 
 const details = (cv) => [
   { icon: User, label: "Name", value: cv.name },
@@ -22,19 +22,22 @@ export default function About() {
           <span className="font-mono text-sm text-primary">01</span>
           <h3 className="text-xl font-semibold">Personal Details</h3>
         </div>
-        <dl className="mt-2 grid gap-x-8 divide-y divide-border/60 border-y border-border/60 md:grid-cols-2 md:divide-y-0">
-          {details(cv).map(({ icon: Icon, label, value, href }) => (
-            <div key={label} className="flex items-baseline justify-between gap-4 py-3 md:border-b md:border-border/60 md:[&:nth-last-child(-n+2)]:border-b-0">
-              <dt className="flex items-center gap-2 text-sm text-muted">
+        <dl className="mt-2 grid gap-x-8 border-y border-border/60 md:grid-cols-2">
+          {details(cv).map(({ icon: Icon, label, value, href }, i) => (
+            <div
+              key={label}
+              className={`flex items-baseline justify-between gap-3 border-border/60 py-3 sm:gap-4${i > 0 ? " border-t md:border-t-0" : ""}${i < 2 ? " md:border-b" : ""}`}
+            >
+              <dt className="flex shrink-0 items-center gap-2 text-sm text-muted">
                 <Icon className="h-3.5 w-3.5" />
                 {label}
               </dt>
               {href ? (
-                <a href={href} className="text-right text-base font-medium transition hover:text-primary">
+                <a href={href} className="min-w-0 break-all text-right text-sm font-medium transition hover:text-primary sm:text-base">
                   {value}
                 </a>
               ) : (
-                <dd className="text-right text-base font-medium">{value}</dd>
+                <dd className="min-w-0 break-all text-right text-sm font-medium sm:text-base">{value}</dd>
               )}
             </div>
           ))}
@@ -75,7 +78,7 @@ export default function About() {
                   <span className="font-semibold group-hover:text-primary">{v.version}</span>
                   <span className="text-sm text-muted">{v.note}</span>
                 </div>
-                <span className="shrink-0 text-sm text-muted transition group-hover:text-primary">↗</span>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition group-hover:text-primary" />
               </a>
             ))}
           </div>

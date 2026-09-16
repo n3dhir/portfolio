@@ -29,7 +29,7 @@ export const SKILL_ICONS = {
   SCSS: "/icons/sass.svg",
   "Tailwind CSS": "/icons/tailwindcss.svg",
   // AI / LLM
-  LangGraph: "Workflow",
+  LangGraph: "/icons/langgraph.svg",
   LangChain: "/icons/langchain.svg",
   RAG: "DatabaseZap",
   "LLM Integration": "MessagesSquare",
