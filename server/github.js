@@ -13,7 +13,7 @@ function githubHeaders() {
 const router = Router()
 
 const calendarCache = { data: null, ts: 0 }
-const CALENDAR_TTL_MS = 6 * 60 * 60 * 1000
+const CALENDAR_TTL_MS = 5 * 60 * 1000
 
 // Contribution calendar (the green squares). Only available via GraphQL,
 // so this route requires GITHUB_TOKEN to be set.
