@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
+import { renderRich } from "../components/richText"
 
 export default function Projects() {
   return (
@@ -23,7 +24,7 @@ export default function Projects() {
               <div className="min-w-0 space-y-1.5">
                 <h4 className="text-lg font-semibold transition group-hover:text-primary">{project.name}</h4>
                 <p className="text-sm text-muted">{project.period}</p>
-                <p className="text-sm text-muted">{project.description}</p>
+                <p className="text-sm text-muted">{renderRich(project.description)}</p>
                 <div className="flex flex-wrap gap-2 pt-0.5">
                   {project.tech.map((tech, ti) => (
                     <Badge key={`${pi}-tech-${ti}`} variant="outline">{tech}</Badge>

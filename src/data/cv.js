@@ -121,19 +121,28 @@ export const cv = {
       slug: "testify",
       period: "Nov 2023 – Jun 2024",
       description:
-        "Web-based technical assessment platform featuring code execution, automated evaluation, and backend processing for candidate submissions.",
+        "Hiring-assessment platform for developers: employers build tests from a **question bank**, invite candidates by email, and get **auto-graded results** — MCQ, C++ coding, and short-text questions in one timed flow.",
       details: [
-        "Testify supports MCQ, coding challenges, and open-ended evaluations in one platform.",
-        "Candidate C++ code runs through an execution API with test-case validation, automated scoring, and pass/fail evaluation. A server-side pipeline handles submissions, validation, and result aggregation.",
+        "Employers assemble tests from a shared question bank — MCQ with per-option scoring, C++ tasks with public practice cases plus **hidden grading cases**, and short-text questions — then invite candidates through **templated email links**.",
+        "Candidates get a tutorial, then timed fullscreen questions with per-question countdowns and auto-submit. C++ runs live against practice cases mid-attempt; final grading re-runs every submission against the hidden cases with **whitespace-tolerant comparison** and **partial credit** per case.",
+        "The review side aggregates scores with charts, tracks candidates through a waiting → review → passed/rejected pipeline, and allows manual answer overrides with scores re-clamped to the test total. Google sign-in issues your own JWT, and grading answers are **stripped** from every candidate-facing response so solutions never leak.",
       ],
       // Screenshots: drop image files in public/screenshots/testify/ and list them here.
-      screenshots: [],
-      highlights: [
-        "Built a full-stack platform supporting MCQ, coding challenges, and open-ended evaluations.",
-        "Integrated a C++ code execution api to run user-submitted code, with test case validation, automated scoring, and pass/fail evaluation.",
-        "Designed backend evaluation pipeline handling submissions, validation, and result aggregation.",
+      screenshots: [
+        { src: "/screenshots/testify/landing.png", caption: "Landing page" },
+        { src: "/screenshots/testify/tests.png", caption: "Test library — assessments with domains, durations, and candidate counts" },
+        { src: "/screenshots/testify/builder.png", caption: "Test builder — question bank with points and time budgets" },
+        { src: "/screenshots/testify/welcome.png", caption: "Candidate experience — tutorial and timed test entry" },
+        { src: "/screenshots/testify/editor.png", caption: "Code execution — compiler output and test case results" },
+        { src: "/screenshots/testify/results.png", caption: "Auto-grading — per-question results and scores" },
       ],
-      tech: ["Angular", "Node.js", "Express.js", "MongoDB", "ACE Editor"],
+      highlights: [
+        "Built a **two-sided platform**: employer test builder + question bank on one side, timed candidate experience on the other.",
+        "Ran C++ execution through external run APIs — interactive practice runs plus **hidden-case grading** with retry logic and per-case partial credit.",
+        "Designed **anti-leak grading**: hidden validation cases, answer-stripping on all candidate reads, manual re-grade with score clamping.",
+        "Shipped the **invite pipeline**: templated emails, candidate status tracking, and chart-based result reports.",
+      ],
+      tech: ["Angular", "Angular Material", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "ACE Editor"],
       links: [
         { label: "Live Demo", href: "https://testify.n3dhir.com" },
         { label: "Demo Video", href: "https://drive.google.com/file/d/11PjLQudEmKk0j9YbJ3aseVqYhDcJsMyp" },
