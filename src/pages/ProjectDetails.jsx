@@ -5,6 +5,7 @@ import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
 import { renderRich } from "../components/richText"
+import { track } from "../lib/posthog"
 
 export default function ProjectDetails() {
   const { slug } = useParams()
@@ -12,6 +13,7 @@ export default function ProjectDetails() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    if (project) track("project_viewed", { slug: project.slug })
   }, [slug])
 
   if (!project) {
@@ -60,7 +62,12 @@ export default function ProjectDetails() {
           <div className="mt-4 flex flex-wrap gap-3">
             {project.links.map((link) => (
               <Button key={link.href} variant="outline" asChild>
-                <a href={link.href} target="_blank" rel="noreferrer">
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => track("outbound_link", { slug: project.slug, label: link.label, href: link.href })}
+                >
                   {link.label}
                 </a>
               </Button>
@@ -79,6 +86,7 @@ export default function ProjectDetails() {
               controls
               preload="metadata"
               playsInline
+              onPlay={() => track("demo_played", { slug: project.slug })}
               className="aspect-video w-full bg-black"
             />
             {project.demoVideo.caption ? (

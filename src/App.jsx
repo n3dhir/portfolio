@@ -1,4 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
+import { useEffect } from "react"
+import posthog from "./lib/posthog"
 import Layout from "./components/site/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
@@ -14,9 +16,18 @@ import Stack from "./pages/Stack"
 import Activity from "./pages/Activity"
 import NotFound from "./pages/NotFound"
 
+function PageTracker() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    if (import.meta.env.VITE_POSTHOG_KEY) posthog.capture("$pageview")
+  }, [pathname])
+  return null
+}
+
 export default function App() {
   return (
     <BrowserRouter>
+      <PageTracker />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
