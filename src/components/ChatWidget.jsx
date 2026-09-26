@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { MessageCircle, Send, X } from "lucide-react"
+import { track } from "../lib/posthog"
 
 const SUGGESTIONS = [
   "What has he built with AI?",
@@ -24,7 +25,10 @@ export default function ChatWidget() {
   }, [messages, busy, open])
 
   useEffect(() => {
-    if (open) inputRef.current?.focus()
+    if (open) {
+      inputRef.current?.focus()
+      track("chat_opened")
+    }
   }, [open ])
 
   useEffect(() => {
@@ -43,6 +47,7 @@ export default function ChatWidget() {
     setMessages(next)
     setDraft("")
     setBusy(true)
+    track("chat_message_sent")
     try {
       const resp = await fetch("/api/chat", {
         method: "POST",
