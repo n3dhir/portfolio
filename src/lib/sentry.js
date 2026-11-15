@@ -22,7 +22,8 @@ if (dsn) {
         matchRoutes,
       }),
       Sentry.replayIntegration({
-        blockAllMedia: true,
+        blockAllMedia: false,
+        maskAllText: false,
       }),
       Sentry.browserProfilingIntegration(),
     ],
