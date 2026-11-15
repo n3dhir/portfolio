@@ -1,5 +1,6 @@
 import { Router } from "express"
 import { cv } from "../src/data/cv.js"
+import { captureError } from "./sentry.js"
 
 // Portfolio chatbot: answers from cv.js via Groq. See .env.example for config.
 const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
@@ -117,7 +118,7 @@ router.post("/", async (req, res) => {
     if (!reply) throw new Error(lastErr)
     res.json({ reply })
   } catch (err) {
-    console.error(err)
+    captureError(err, req)
     res.status(502).json({ error: "Chat is unavailable right now — try again later." })
   }
 })
