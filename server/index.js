@@ -3,10 +3,19 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
 import dotenv from 'dotenv'
+import * as Sentry from '@sentry/node'
 import githubRouter from './github.js'
 import chatRouter from './chat.js'
 
 dotenv.config()
+
+if (process.env.SENTRY_DSN) {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+    environment: process.env.NODE_ENV || 'development',
+    tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
+  })
+}
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -33,6 +42,10 @@ app.get('*', (req, res) => {
   if (fs.existsSync(indexInDist)) return res.sendFile(indexInDist)
   return res.sendFile(indexInRoot)
 })
+
+if (process.env.SENTRY_DSN) {
+  Sentry.setupExpressErrorHandler(app)
+}
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`)
