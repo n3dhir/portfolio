@@ -1,4 +1,5 @@
 import { Router } from "express"
+import { captureError } from "./sentry.js"
 
 // GitHub proxy — caches server-side so the page never hits browser rate
 // limits. Optional GITHUB_TOKEN raises the quota.
@@ -53,6 +54,7 @@ router.get("/calendar", async (req, res) => {
     calendarCache.ts = Date.now()
     res.json(payload)
   } catch (err) {
+    captureError(err, req)
     res.status(502).json({ error: "Contribution calendar unavailable right now." })
   }
 })
