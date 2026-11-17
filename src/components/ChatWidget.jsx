@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { MessageCircle, Send, X } from "lucide-react"
-import { track } from "../lib/posthog"
+import { track } from "../lib/ga"
 
 const SUGGESTIONS = [
   "What has he built with AI?",

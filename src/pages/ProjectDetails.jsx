@@ -5,7 +5,7 @@ import { cv } from "../data/cv"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
 import { renderRich } from "../components/richText"
-import { track } from "../lib/posthog"
+import { track } from "../lib/ga"
 
 export default function ProjectDetails() {
   const { slug } = useParams()

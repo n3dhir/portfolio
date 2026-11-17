@@ -2,7 +2,7 @@ import resumePdf from "../../Nadhir_Halbouni_Resume.pdf"
 import { cv } from "../data/cv"
 import { Button } from "../components/ui/button"
 import { renderRich } from "../components/richText"
-import { track } from "../lib/posthog"
+import { track } from "../lib/ga"
 
 export default function Resume() {
   return (
