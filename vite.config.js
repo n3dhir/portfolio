@@ -9,16 +9,23 @@ export default defineConfig(({ mode }) => {
     env.SENTRY_RELEASE ||
     `portfolio@${execSync("git rev-parse --short HEAD").toString().trim()}`
 
+  // Upload source maps to Sentry only when SENTRY_UPLOAD=1 is set in .env.
+  const uploadToSentry = env.SENTRY_UPLOAD === "1"
+
   return {
     plugins: [
       react(),
-      sentryVitePlugin({
-        org: env.SENTRY_ORG || "aa-nr",
-        project: env.SENTRY_PROJECT || "portfolio-frontend",
-        authToken: env.SENTRY_AUTH_TOKEN,
-        release: { name: release, inject: true },
-        sourcemaps: { filesToDeleteAfterUpload: ["**/*.map"] },
-      }),
+      ...(uploadToSentry
+        ? [
+            sentryVitePlugin({
+              org: env.SENTRY_ORG || "aa-nr",
+              project: env.SENTRY_PROJECT || "portfolio-frontend",
+              authToken: env.SENTRY_AUTH_TOKEN,
+              release: { name: release, inject: true },
+              sourcemaps: { filesToDeleteAfterUpload: ["**/*.map"] },
+            }),
+          ]
+        : []),
     ],
     build: {
       sourcemap: "hidden",

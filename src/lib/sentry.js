@@ -9,7 +9,11 @@ import {
 
 const dsn = import.meta.env.VITE_SENTRY_DSN
 
-if (dsn) {
+const isLocal =
+  typeof window !== "undefined" &&
+  /^localhost$|^127\.|^192\.168\.|^10\./.test(window.location.hostname)
+
+if (dsn && !isLocal) {
   Sentry.init({
     dsn,
     environment: import.meta.env.MODE,
