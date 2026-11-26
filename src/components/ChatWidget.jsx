@@ -85,7 +85,7 @@ export default function ChatWidget() {
                 className={`rounded-lg px-3 py-2 text-sm leading-relaxed ${
                   m.role === "user"
                     ? "ml-8 bg-primary/20 text-foreground"
-                    : "mr-8 bg-white/5 text-muted"
+                    : "mr-8 bg-foreground/5 text-muted"
                 }`}
               >
                 {m.role === "assistant" ? (
@@ -128,7 +128,7 @@ export default function ChatWidget() {
                 )}
               </div>
             ))}
-            {busy ? <p className="mr-8 rounded-lg bg-white/5 px-3 py-2 text-sm text-muted">…</p> : null}
+            {busy ? <p className="mr-8 rounded-lg bg-foreground/5 px-3 py-2 text-sm text-muted">…</p> : null}
           </div>
           {messages.length <= 1 ? (
             <div className="flex flex-wrap gap-2 px-4 pb-2">

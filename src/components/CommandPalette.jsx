@@ -129,7 +129,7 @@ export default function CommandPalette() {
                 onClick={() => go(entry.to)}
                 onMouseEnter={() => setActive(i)}
                 className={`flex w-full items-center justify-between gap-4 rounded-md px-3 py-2 text-left text-sm transition ${
-                  i === active ? "bg-white/10 text-foreground" : "text-muted"
+                  i === active ? "bg-foreground/10 text-foreground" : "text-muted"
                 }`}
               >
                 <span>{entry.label}</span>

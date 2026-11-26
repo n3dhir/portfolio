@@ -72,7 +72,7 @@ export function ItemIcon({ icon }) {
         alt=""
         aria-hidden="true"
         loading="lazy"
-        className={`h-[18px] w-auto max-w-[38px] shrink-0 ${INVERT.has(icon) ? "invert" : ""}`}
+        className={`h-[18px] w-auto max-w-[38px] shrink-0 ${INVERT.has(icon) ? "dark:invert" : ""}`}
       />
     )
   }

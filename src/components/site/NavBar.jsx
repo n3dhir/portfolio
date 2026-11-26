@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
 import { Menu, Search } from "lucide-react"
+import ThemeToggle from "./ThemeToggle"
 import { Button } from "../ui/button"
 import { PALETTE_EVENT } from "../CommandPalette"
 
@@ -32,7 +33,7 @@ export default function NavBar() {
               to={link.to}
               className={({ isActive }) =>
                 `rounded-md px-3 py-2 text-sm transition ${
-                  isActive ? "bg-white/10 text-foreground" : "text-muted hover:text-foreground"
+                  isActive ? "bg-foreground/10 text-foreground" : "text-muted hover:text-foreground"
                 }`
               }
             >
@@ -41,6 +42,7 @@ export default function NavBar() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Button
             variant="ghost"
             size="icon"
@@ -71,7 +73,7 @@ export default function NavBar() {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   `rounded-md px-3 py-2 text-sm transition ${
-                    isActive ? "bg-white/10 text-foreground" : "text-muted hover:text-foreground"
+                    isActive ? "bg-foreground/10 text-foreground" : "text-muted hover:text-foreground"
                   }`
                 }
               >

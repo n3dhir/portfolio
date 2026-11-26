@@ -16,7 +16,7 @@ function UseRow({ item }) {
     </>
   )
   const className =
-    "group relative flex min-w-0 flex-col gap-0.5 rounded-md px-2 py-1.5 pr-7 transition hover:bg-white/[0.04] sm:flex-row sm:items-center sm:gap-3 sm:pr-2"
+    "group relative flex min-w-0 flex-col gap-0.5 rounded-md px-2 py-1.5 pr-7 transition hover:bg-foreground/[0.04] sm:flex-row sm:items-center sm:gap-3 sm:pr-2"
   if (item.href) {
     return (
       <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className={className}>
